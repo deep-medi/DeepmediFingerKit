@@ -1,0 +1,6 @@
+framework module DeepmediFingerKit {
+  umbrella header "DeepmediFingerKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

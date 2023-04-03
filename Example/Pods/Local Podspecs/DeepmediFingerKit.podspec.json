@@ -1,0 +1,22 @@
+{
+  "name": "DeepmediFingerKit",
+  "version": "0.1.0",
+  "summary": "A short description of DeepmediFingerKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/demianjun@gmail.com/DeepmediFingerKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "demianjun@gmail.com": "demianjun@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/demianjun@gmail.com/DeepmediFingerKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "DeepmediFingerKit/Classes/**/*"
+}

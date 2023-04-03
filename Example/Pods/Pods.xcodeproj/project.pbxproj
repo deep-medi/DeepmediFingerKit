@@ -1,0 +1,864 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		076260BE4548CB78D764764B4B6BE349 /* DeepmediFingerKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C731809026BF28F5A200B37B947CAEE /* DeepmediFingerKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		16D840E83E96082D893CA25857FB44C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		17EC97875B842E954872972B473F8677 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		3A246EBFA6869A5925E08D698A29FB81 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		4BBEE1AC2BCC56BA5BD18A942A011946 /* DeepmediFingerKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A006505B7B273FA196A108EB27990F29 /* DeepmediFingerKit-dummy.m */; };
+		5CD9CA8C29DAB50500DA4846 /* ObjcMapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5CD9CA8829DAB50500DA4846 /* ObjcMapper.mm */; };
+		5CD9CA8D29DAB50500DA4846 /* OpenCVWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CD9CA8929DAB50500DA4846 /* OpenCVWrapper.h */; };
+		5CD9CA8E29DAB50500DA4846 /* ObjcMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CD9CA8A29DAB50500DA4846 /* ObjcMapper.h */; };
+		5CD9CA8F29DAB50500DA4846 /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5CD9CA8B29DAB50500DA4846 /* OpenCVWrapper.mm */; };
+		5CD9CA9829DAB67100DA4846 /* CameraSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD9CA9729DAB67100DA4846 /* CameraSetup.swift */; };
+		5CD9CA9A29DAB73C00DA4846 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD9CA9929DAB73C00DA4846 /* Extension.swift */; };
+		5CD9CA9C29DAB78700DA4846 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD9CA9B29DAB78700DA4846 /* Document.swift */; };
+		5CD9CA9E29DAB84D00DA4846 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD9CA9D29DAB84D00DA4846 /* Header.swift */; };
+		5CD9CAA029DAB87700DA4846 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD9CA9F29DAB87700DA4846 /* DataModel.swift */; };
+		5CD9CAA229DAB95B00DA4846 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD9CAA129DAB95B00DA4846 /* Model.swift */; };
+		5CD9CAA429DAB9E400DA4846 /* MeasurementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD9CAA329DAB9E400DA4846 /* MeasurementModel.swift */; };
+		5CD9CAA629DABEBC00DA4846 /* CameraObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD9CAA529DABEBC00DA4846 /* CameraObject.swift */; };
+		97519A87BCB6D11F0355BC8305CFF662 /* Pods-DeepmediFingerKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EFE25456A100222656AD764F0135C2 /* Pods-DeepmediFingerKit_Tests-dummy.m */; };
+		A80581493BAD6F448B7D76E8546D5E61 /* Pods-DeepmediFingerKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ACD0ACFBA4CAF641670704C9EFB0EFF8 /* Pods-DeepmediFingerKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC2B84E2CA7270B69CE70A978B278E64 /* Pods-DeepmediFingerKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BED2E1C2B532A3B7F9819B51EBD466F4 /* Pods-DeepmediFingerKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CF335EE38B09E37A31B82BD31AC726FA /* Pods-DeepmediFingerKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD6EBB8DE70F2C1598BD551BA4540E /* Pods-DeepmediFingerKit_Example-dummy.m */; };
+		D718CFAA8707B0CDBD0731D3B0E1A25B /* FingerMeasureKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C5B04472445D7AF36D1163CF93904D /* FingerMeasureKit.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		247CE22B0B9A50EDF3E2945A148DBD76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0085CB04D48DB6B6DAA5E9077ED7E02;
+			remoteInfo = DeepmediFingerKit;
+		};
+		91A3A0D2AFBD559EE60B1914EB6C51F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0225AB16B874D8B16ABBAAC9E76281EA;
+			remoteInfo = "Pods-DeepmediFingerKit_Example";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0B367BF07BC49F1BF5364CE8F72FDE3D /* Pods-DeepmediFingerKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DeepmediFingerKit_Example.release.xcconfig"; sourceTree = "<group>"; };
+		3B626B64E8539FBCEA6A9E44B4F26FDD /* DeepmediFingerKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DeepmediFingerKit.debug.xcconfig; sourceTree = "<group>"; };
+		3F2B869F16C3DFC37101FE3F09E28DAA /* Pods-DeepmediFingerKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DeepmediFingerKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		4D539C1F99F36E657359BDC97211E960 /* Pods-DeepmediFingerKit_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-DeepmediFingerKit_Example.modulemap"; sourceTree = "<group>"; };
+		5CD9CA8829DAB50500DA4846 /* ObjcMapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ObjcMapper.mm; sourceTree = "<group>"; };
+		5CD9CA8929DAB50500DA4846 /* OpenCVWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCVWrapper.h; sourceTree = "<group>"; };
+		5CD9CA8A29DAB50500DA4846 /* ObjcMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjcMapper.h; sourceTree = "<group>"; };
+		5CD9CA8B29DAB50500DA4846 /* OpenCVWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
+		5CD9CA9729DAB67100DA4846 /* CameraSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSetup.swift; sourceTree = "<group>"; };
+		5CD9CA9929DAB73C00DA4846 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		5CD9CA9B29DAB78700DA4846 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		5CD9CA9D29DAB84D00DA4846 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		5CD9CA9F29DAB87700DA4846 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		5CD9CAA129DAB95B00DA4846 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		5CD9CAA329DAB9E400DA4846 /* MeasurementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementModel.swift; sourceTree = "<group>"; };
+		5CD9CAA529DABEBC00DA4846 /* CameraObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraObject.swift; sourceTree = "<group>"; };
+		5FCDCC15AD753C86F892B43B6055C59E /* Pods-DeepmediFingerKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DeepmediFingerKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		65FD6EBB8DE70F2C1598BD551BA4540E /* Pods-DeepmediFingerKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DeepmediFingerKit_Example-dummy.m"; sourceTree = "<group>"; };
+		66538F29C0A3F7E10143B7F57889076B /* DeepmediFingerKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DeepmediFingerKit-prefix.pch"; sourceTree = "<group>"; };
+		696F8583BF2127F234B64C953857EA3F /* Pods-DeepmediFingerKit_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-DeepmediFingerKit_Tests"; path = Pods_DeepmediFingerKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7C731809026BF28F5A200B37B947CAEE /* DeepmediFingerKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DeepmediFingerKit-umbrella.h"; sourceTree = "<group>"; };
+		86C53392E87E8636463461F7D0905312 /* Pods-DeepmediFingerKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DeepmediFingerKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		86C5B04472445D7AF36D1163CF93904D /* FingerMeasureKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FingerMeasureKit.swift; path = DeepmediFingerKit/Classes/FingerMeasureKit.swift; sourceTree = "<group>"; };
+		8731E93E982099DF81796A9E384DE3DB /* DeepmediFingerKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = DeepmediFingerKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9ED9AACD04719BE069D1D5D6AE535224 /* Pods-DeepmediFingerKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DeepmediFingerKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		A006505B7B273FA196A108EB27990F29 /* DeepmediFingerKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DeepmediFingerKit-dummy.m"; sourceTree = "<group>"; };
+		A05FC3CF905CEB1CA3E295970E59E07C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		A8B71134C817A83BB41C27027520F3E1 /* Pods-DeepmediFingerKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DeepmediFingerKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		ACD0ACFBA4CAF641670704C9EFB0EFF8 /* Pods-DeepmediFingerKit_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DeepmediFingerKit_Example-umbrella.h"; sourceTree = "<group>"; };
+		AD3D24F916331D5C28847D50365A509A /* DeepmediFingerKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DeepmediFingerKit-Info.plist"; sourceTree = "<group>"; };
+		AF52F865EA7B9E8AAB703F7872D7AA21 /* Pods-DeepmediFingerKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DeepmediFingerKit_Example-frameworks.sh"; sourceTree = "<group>"; };
+		B3CCF700F2987987AAC53F28A61C119F /* DeepmediFingerKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DeepmediFingerKit.release.xcconfig; sourceTree = "<group>"; };
+		B478C00DE7921938BB59DDD35CFAE238 /* Pods-DeepmediFingerKit_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DeepmediFingerKit_Example-Info.plist"; sourceTree = "<group>"; };
+		B5AC7103DD543095DA9257F863EB82FC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BED2E1C2B532A3B7F9819B51EBD466F4 /* Pods-DeepmediFingerKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DeepmediFingerKit_Tests-umbrella.h"; sourceTree = "<group>"; };
+		D3A5E8580F88379D7A25374EE5A79919 /* DeepmediFingerKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DeepmediFingerKit.modulemap; sourceTree = "<group>"; };
+		D79CDD6D9135B2B648943734693EBED3 /* Pods-DeepmediFingerKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-DeepmediFingerKit_Tests.modulemap"; sourceTree = "<group>"; };
+		E3EFE25456A100222656AD764F0135C2 /* Pods-DeepmediFingerKit_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DeepmediFingerKit_Tests-dummy.m"; sourceTree = "<group>"; };
+		E45B2313F5C12BDF50965AD2B97BC91F /* Pods-DeepmediFingerKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DeepmediFingerKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		ED56C8D3E0ABFDB27F1A31F3FD3D8FA7 /* DeepmediFingerKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DeepmediFingerKit; path = DeepmediFingerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F46E6833F1A1C5F3F29E5BE7D134C1B9 /* Pods-DeepmediFingerKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DeepmediFingerKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		F8F4CF2F171DBEEF872EFD525654FF8B /* Pods-DeepmediFingerKit_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-DeepmediFingerKit_Example"; path = Pods_DeepmediFingerKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAE8B28B3472385223A8B63B516F5F52 /* Pods-DeepmediFingerKit_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DeepmediFingerKit_Tests-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3C36472D0798179496DCE57995966269 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16D840E83E96082D893CA25857FB44C2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AAC45ECD72F7FD43DEF549C62AB37EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17EC97875B842E954872972B473F8677 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBF186B28FF3DAFC96B002B307BD8758 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A246EBFA6869A5925E08D698A29FB81 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0892D786F8ABB7163894C76FE11C661E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED56C8D3E0ABFDB27F1A31F3FD3D8FA7 /* DeepmediFingerKit */,
+				F8F4CF2F171DBEEF872EFD525654FF8B /* Pods-DeepmediFingerKit_Example */,
+				696F8583BF2127F234B64C953857EA3F /* Pods-DeepmediFingerKit_Tests */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		5CD9CA8729DAB50500DA4846 /* Objc */ = {
+			isa = PBXGroup;
+			children = (
+				5CD9CA8829DAB50500DA4846 /* ObjcMapper.mm */,
+				5CD9CA8A29DAB50500DA4846 /* ObjcMapper.h */,
+				5CD9CA8B29DAB50500DA4846 /* OpenCVWrapper.mm */,
+				5CD9CA8929DAB50500DA4846 /* OpenCVWrapper.h */,
+			);
+			name = Objc;
+			path = DeepmediFingerKit/Objc;
+			sourceTree = "<group>";
+		};
+		5CD9CA9329DAB62A00DA4846 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5CD9CA9F29DAB87700DA4846 /* DataModel.swift */,
+				5CD9CAA329DAB9E400DA4846 /* MeasurementModel.swift */,
+				5CD9CAA129DAB95B00DA4846 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5CD9CA9429DAB64F00DA4846 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				5CD9CA9D29DAB84D00DA4846 /* Header.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		5CD9CA9529DAB65400DA4846 /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				5CD9CA9B29DAB78700DA4846 /* Document.swift */,
+			);
+			path = Document;
+			sourceTree = "<group>";
+		};
+		5CD9CA9629DAB65A00DA4846 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				5CD9CA9729DAB67100DA4846 /* CameraSetup.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		6D6F725F6AE706AC6FCBF6D68A46C604 /* DeepmediFingerKit */ = {
+			isa = PBXGroup;
+			children = (
+				86C5B04472445D7AF36D1163CF93904D /* FingerMeasureKit.swift */,
+				5CD9CAA529DABEBC00DA4846 /* CameraObject.swift */,
+				5CD9CA9629DAB65A00DA4846 /* Camera */,
+				5CD9CA9529DAB65400DA4846 /* Document */,
+				5CD9CA9429DAB64F00DA4846 /* Header */,
+				5CD9CA9329DAB62A00DA4846 /* Model */,
+				5CD9CA8729DAB50500DA4846 /* Objc */,
+				EC85C82E577113350F1FBD0D5E3F8A2F /* Pod */,
+				EA83EAB40FA67442D063C78BD83A2B85 /* Support Files */,
+			);
+			name = DeepmediFingerKit;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		7496DE9E547B84B4AB67B31CD3232152 /* Pods-DeepmediFingerKit_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D79CDD6D9135B2B648943734693EBED3 /* Pods-DeepmediFingerKit_Tests.modulemap */,
+				E45B2313F5C12BDF50965AD2B97BC91F /* Pods-DeepmediFingerKit_Tests-acknowledgements.markdown */,
+				5FCDCC15AD753C86F892B43B6055C59E /* Pods-DeepmediFingerKit_Tests-acknowledgements.plist */,
+				E3EFE25456A100222656AD764F0135C2 /* Pods-DeepmediFingerKit_Tests-dummy.m */,
+				FAE8B28B3472385223A8B63B516F5F52 /* Pods-DeepmediFingerKit_Tests-Info.plist */,
+				BED2E1C2B532A3B7F9819B51EBD466F4 /* Pods-DeepmediFingerKit_Tests-umbrella.h */,
+				A8B71134C817A83BB41C27027520F3E1 /* Pods-DeepmediFingerKit_Tests.debug.xcconfig */,
+				3F2B869F16C3DFC37101FE3F09E28DAA /* Pods-DeepmediFingerKit_Tests.release.xcconfig */,
+			);
+			name = "Pods-DeepmediFingerKit_Tests";
+			path = "Target Support Files/Pods-DeepmediFingerKit_Tests";
+			sourceTree = "<group>";
+		};
+		88F0A854706D9646AE459D2D02A37DFA /* Pods-DeepmediFingerKit_Example */ = {
+			isa = PBXGroup;
+			children = (
+				4D539C1F99F36E657359BDC97211E960 /* Pods-DeepmediFingerKit_Example.modulemap */,
+				86C53392E87E8636463461F7D0905312 /* Pods-DeepmediFingerKit_Example-acknowledgements.markdown */,
+				9ED9AACD04719BE069D1D5D6AE535224 /* Pods-DeepmediFingerKit_Example-acknowledgements.plist */,
+				65FD6EBB8DE70F2C1598BD551BA4540E /* Pods-DeepmediFingerKit_Example-dummy.m */,
+				AF52F865EA7B9E8AAB703F7872D7AA21 /* Pods-DeepmediFingerKit_Example-frameworks.sh */,
+				B478C00DE7921938BB59DDD35CFAE238 /* Pods-DeepmediFingerKit_Example-Info.plist */,
+				ACD0ACFBA4CAF641670704C9EFB0EFF8 /* Pods-DeepmediFingerKit_Example-umbrella.h */,
+				F46E6833F1A1C5F3F29E5BE7D134C1B9 /* Pods-DeepmediFingerKit_Example.debug.xcconfig */,
+				0B367BF07BC49F1BF5364CE8F72FDE3D /* Pods-DeepmediFingerKit_Example.release.xcconfig */,
+			);
+			name = "Pods-DeepmediFingerKit_Example";
+			path = "Target Support Files/Pods-DeepmediFingerKit_Example";
+			sourceTree = "<group>";
+		};
+		9E31C5D134682898E4F8C32B4C5CA0FF /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				88F0A854706D9646AE459D2D02A37DFA /* Pods-DeepmediFingerKit_Example */,
+				7496DE9E547B84B4AB67B31CD3232152 /* Pods-DeepmediFingerKit_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		A543B75EABBD9243494580056D7A1E20 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6D6F725F6AE706AC6FCBF6D68A46C604 /* DeepmediFingerKit */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				A543B75EABBD9243494580056D7A1E20 /* Development Pods */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				0892D786F8ABB7163894C76FE11C661E /* Products */,
+				9E31C5D134682898E4F8C32B4C5CA0FF /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EA83EAB40FA67442D063C78BD83A2B85 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5CD9CA9929DAB73C00DA4846 /* Extension.swift */,
+				D3A5E8580F88379D7A25374EE5A79919 /* DeepmediFingerKit.modulemap */,
+				A006505B7B273FA196A108EB27990F29 /* DeepmediFingerKit-dummy.m */,
+				AD3D24F916331D5C28847D50365A509A /* DeepmediFingerKit-Info.plist */,
+				66538F29C0A3F7E10143B7F57889076B /* DeepmediFingerKit-prefix.pch */,
+				7C731809026BF28F5A200B37B947CAEE /* DeepmediFingerKit-umbrella.h */,
+				3B626B64E8539FBCEA6A9E44B4F26FDD /* DeepmediFingerKit.debug.xcconfig */,
+				B3CCF700F2987987AAC53F28A61C119F /* DeepmediFingerKit.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/DeepmediFingerKit";
+			sourceTree = "<group>";
+		};
+		EC85C82E577113350F1FBD0D5E3F8A2F /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				8731E93E982099DF81796A9E384DE3DB /* DeepmediFingerKit.podspec */,
+				A05FC3CF905CEB1CA3E295970E59E07C /* LICENSE */,
+				B5AC7103DD543095DA9257F863EB82FC /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		538DF30F323BCED99ED956116EF2BE3D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				076260BE4548CB78D764764B4B6BE349 /* DeepmediFingerKit-umbrella.h in Headers */,
+				5CD9CA8E29DAB50500DA4846 /* ObjcMapper.h in Headers */,
+				5CD9CA8D29DAB50500DA4846 /* OpenCVWrapper.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80979AF5151C0B66D5C8D7991F9B7AA0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC2B84E2CA7270B69CE70A978B278E64 /* Pods-DeepmediFingerKit_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8391C85C97F4FDCBE8A97A24AF31BB7E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A80581493BAD6F448B7D76E8546D5E61 /* Pods-DeepmediFingerKit_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0225AB16B874D8B16ABBAAC9E76281EA /* Pods-DeepmediFingerKit_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5849723FBE81035B8A7AAFE34047D31 /* Build configuration list for PBXNativeTarget "Pods-DeepmediFingerKit_Example" */;
+			buildPhases = (
+				8391C85C97F4FDCBE8A97A24AF31BB7E /* Headers */,
+				765D3017659DF31DE7707C323D74C4F2 /* Sources */,
+				3C36472D0798179496DCE57995966269 /* Frameworks */,
+				F98E7ADED22E38AB4E84A802941645BC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				76822EFECA5C110C14641F4B492D7B9A /* PBXTargetDependency */,
+			);
+			name = "Pods-DeepmediFingerKit_Example";
+			productName = Pods_DeepmediFingerKit_Example;
+			productReference = F8F4CF2F171DBEEF872EFD525654FF8B /* Pods-DeepmediFingerKit_Example */;
+			productType = "com.apple.product-type.framework";
+		};
+		A4B979893C1F3C0600ECB9B4E0E5EA2E /* Pods-DeepmediFingerKit_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D001675F26774F259011B82BA45A1017 /* Build configuration list for PBXNativeTarget "Pods-DeepmediFingerKit_Tests" */;
+			buildPhases = (
+				80979AF5151C0B66D5C8D7991F9B7AA0 /* Headers */,
+				CCC3769B5A73AC544CC6154CB57FFF86 /* Sources */,
+				FBF186B28FF3DAFC96B002B307BD8758 /* Frameworks */,
+				2DD06CCF2D42AAA11B2B81FB0D51F8E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA7B7AD92BAAF0E3EC9896649CF3FC97 /* PBXTargetDependency */,
+			);
+			name = "Pods-DeepmediFingerKit_Tests";
+			productName = Pods_DeepmediFingerKit_Tests;
+			productReference = 696F8583BF2127F234B64C953857EA3F /* Pods-DeepmediFingerKit_Tests */;
+			productType = "com.apple.product-type.framework";
+		};
+		B0085CB04D48DB6B6DAA5E9077ED7E02 /* DeepmediFingerKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 82B5DCBDDE1FE6F9071CCD80234CB0E1 /* Build configuration list for PBXNativeTarget "DeepmediFingerKit" */;
+			buildPhases = (
+				538DF30F323BCED99ED956116EF2BE3D /* Headers */,
+				CCED8A000C32B1E035BC1B5CF386BAC5 /* Sources */,
+				6AAC45ECD72F7FD43DEF549C62AB37EB /* Frameworks */,
+				74777E33193AF0870CFD4BF197103C00 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DeepmediFingerKit;
+			productName = DeepmediFingerKit;
+			productReference = ED56C8D3E0ABFDB27F1A31F3FD3D8FA7 /* DeepmediFingerKit */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 0892D786F8ABB7163894C76FE11C661E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B0085CB04D48DB6B6DAA5E9077ED7E02 /* DeepmediFingerKit */,
+				0225AB16B874D8B16ABBAAC9E76281EA /* Pods-DeepmediFingerKit_Example */,
+				A4B979893C1F3C0600ECB9B4E0E5EA2E /* Pods-DeepmediFingerKit_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2DD06CCF2D42AAA11B2B81FB0D51F8E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74777E33193AF0870CFD4BF197103C00 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F98E7ADED22E38AB4E84A802941645BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		765D3017659DF31DE7707C323D74C4F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF335EE38B09E37A31B82BD31AC726FA /* Pods-DeepmediFingerKit_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCC3769B5A73AC544CC6154CB57FFF86 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97519A87BCB6D11F0355BC8305CFF662 /* Pods-DeepmediFingerKit_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCED8A000C32B1E035BC1B5CF386BAC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CD9CA9E29DAB84D00DA4846 /* Header.swift in Sources */,
+				5CD9CA8F29DAB50500DA4846 /* OpenCVWrapper.mm in Sources */,
+				4BBEE1AC2BCC56BA5BD18A942A011946 /* DeepmediFingerKit-dummy.m in Sources */,
+				5CD9CA9829DAB67100DA4846 /* CameraSetup.swift in Sources */,
+				5CD9CA9A29DAB73C00DA4846 /* Extension.swift in Sources */,
+				5CD9CAA429DAB9E400DA4846 /* MeasurementModel.swift in Sources */,
+				5CD9CAA229DAB95B00DA4846 /* Model.swift in Sources */,
+				5CD9CA8C29DAB50500DA4846 /* ObjcMapper.mm in Sources */,
+				5CD9CAA029DAB87700DA4846 /* DataModel.swift in Sources */,
+				5CD9CAA629DABEBC00DA4846 /* CameraObject.swift in Sources */,
+				5CD9CA9C29DAB78700DA4846 /* Document.swift in Sources */,
+				D718CFAA8707B0CDBD0731D3B0E1A25B /* FingerMeasureKit.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		76822EFECA5C110C14641F4B492D7B9A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DeepmediFingerKit;
+			target = B0085CB04D48DB6B6DAA5E9077ED7E02 /* DeepmediFingerKit */;
+			targetProxy = 247CE22B0B9A50EDF3E2945A148DBD76 /* PBXContainerItemProxy */;
+		};
+		BA7B7AD92BAAF0E3EC9896649CF3FC97 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-DeepmediFingerKit_Example";
+			target = 0225AB16B874D8B16ABBAAC9E76281EA /* Pods-DeepmediFingerKit_Example */;
+			targetProxy = 91A3A0D2AFBD559EE60B1914EB6C51F1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7060042778CC4B74F0094CF0AFE9D386 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F2B869F16C3DFC37101FE3F09E28DAA /* Pods-DeepmediFingerKit_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DeepmediFingerKit_Tests/Pods-DeepmediFingerKit_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DeepmediFingerKit_Tests/Pods-DeepmediFingerKit_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		76603E1A197A1F8E898626CAA6E341BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8B71134C817A83BB41C27027520F3E1 /* Pods-DeepmediFingerKit_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DeepmediFingerKit_Tests/Pods-DeepmediFingerKit_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DeepmediFingerKit_Tests/Pods-DeepmediFingerKit_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7EE7A78859F657F6BEFC651185B43192 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		9164C12E4D6E4D9C8CACB3C857EF7F42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B626B64E8539FBCEA6A9E44B4F26FDD /* DeepmediFingerKit.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/DeepmediFingerKit/DeepmediFingerKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DeepmediFingerKit/DeepmediFingerKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DeepmediFingerKit/DeepmediFingerKit.modulemap";
+				PRODUCT_MODULE_NAME = DeepmediFingerKit;
+				PRODUCT_NAME = DeepmediFingerKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C1B68511C8169CAA0B43320DC7B5FA7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F46E6833F1A1C5F3F29E5BE7D134C1B9 /* Pods-DeepmediFingerKit_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DeepmediFingerKit_Example/Pods-DeepmediFingerKit_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DeepmediFingerKit_Example/Pods-DeepmediFingerKit_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CDB0676490213647DFE3E46EEA9C296F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B367BF07BC49F1BF5364CE8F72FDE3D /* Pods-DeepmediFingerKit_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DeepmediFingerKit_Example/Pods-DeepmediFingerKit_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DeepmediFingerKit_Example/Pods-DeepmediFingerKit_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D299434AB35E7FD6F7921C8EF24742FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		F4DA155FA342B8C22BA254976656B6B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3CCF700F2987987AAC53F28A61C119F /* DeepmediFingerKit.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/DeepmediFingerKit/DeepmediFingerKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DeepmediFingerKit/DeepmediFingerKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DeepmediFingerKit/DeepmediFingerKit.modulemap";
+				PRODUCT_MODULE_NAME = DeepmediFingerKit;
+				PRODUCT_NAME = DeepmediFingerKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D299434AB35E7FD6F7921C8EF24742FF /* Debug */,
+				7EE7A78859F657F6BEFC651185B43192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		82B5DCBDDE1FE6F9071CCD80234CB0E1 /* Build configuration list for PBXNativeTarget "DeepmediFingerKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9164C12E4D6E4D9C8CACB3C857EF7F42 /* Debug */,
+				F4DA155FA342B8C22BA254976656B6B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D001675F26774F259011B82BA45A1017 /* Build configuration list for PBXNativeTarget "Pods-DeepmediFingerKit_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				76603E1A197A1F8E898626CAA6E341BA /* Debug */,
+				7060042778CC4B74F0094CF0AFE9D386 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5849723FBE81035B8A7AAFE34047D31 /* Build configuration list for PBXNativeTarget "Pods-DeepmediFingerKit_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1B68511C8169CAA0B43320DC7B5FA7A /* Debug */,
+				CDB0676490213647DFE3E46EEA9C296F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

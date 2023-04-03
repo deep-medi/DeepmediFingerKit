@@ -1,0 +1,16 @@
+PODS:
+  - DeepmediFingerKit (0.1.0)
+
+DEPENDENCIES:
+  - DeepmediFingerKit (from `../`)
+
+EXTERNAL SOURCES:
+  DeepmediFingerKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DeepmediFingerKit: 413a2bdbef306e7667e55c058327de0a942f7b60
+
+PODFILE CHECKSUM: 929115228636ba86c41d6b748789f73549ec1c2f
+
+COCOAPODS: 1.12.0

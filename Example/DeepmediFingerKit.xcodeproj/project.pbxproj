@@ -29,7 +29,7 @@
 
 /* Begin PBXFileReference section */
 		3E80517739D0618092B4A903 /* Pods-DeepmediFingerKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepmediFingerKit_Tests.release.xcconfig"; path = "Target Support Files/Pods-DeepmediFingerKit_Tests/Pods-DeepmediFingerKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		52945AE54469F9586792B156 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		52945AE54469F9586792B156 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* DeepmediFingerKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepmediFingerKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,11 +41,11 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		64C5F6CFF527F61268FC64FE /* Pods_DeepmediFingerKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeepmediFingerKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		713CB31AD8B3895B21789565 /* DeepmediFingerKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = DeepmediFingerKit.podspec; path = ../DeepmediFingerKit.podspec; sourceTree = "<group>"; };
+		713CB31AD8B3895B21789565 /* DeepmediFingerKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DeepmediFingerKit.podspec; path = ../DeepmediFingerKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		89DD20C6091A76FEAFA30B4A /* Pods_DeepmediFingerKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeepmediFingerKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A091B4D4B62AF4AC43AC9BEC /* Pods-DeepmediFingerKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepmediFingerKit_Tests.debug.xcconfig"; path = "Target Support Files/Pods-DeepmediFingerKit_Tests/Pods-DeepmediFingerKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C38E32D530BC28F1344B972F /* Pods-DeepmediFingerKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepmediFingerKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-DeepmediFingerKit_Example/Pods-DeepmediFingerKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		DB434F6BEE8292757EDC0F2C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		DB434F6BEE8292757EDC0F2C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F67A85DB4E4F8928079D736E /* Pods-DeepmediFingerKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepmediFingerKit_Example.release.xcconfig"; path = "Target Support Files/Pods-DeepmediFingerKit_Example/Pods-DeepmediFingerKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,7 +147,6 @@
 				A091B4D4B62AF4AC43AC9BEC /* Pods-DeepmediFingerKit_Tests.debug.xcconfig */,
 				3E80517739D0618092B4A903 /* Pods-DeepmediFingerKit_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -227,6 +226,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
