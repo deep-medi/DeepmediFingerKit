@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'DeepmediFingerKit_Example' do
+  pod 'DeepmediFingerKit', :path => '../'
+
+  target 'DeepmediFingerKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
