@@ -1,8 +1,9 @@
 //
 //  ObjcMapper.h
-//  Pods
+//  healthCare
 //
-//  Created by Demian on 2023/02/09.
+//  Created by KangNamgyu on 8/17/18.
+//  Copyright © 2018 deepmedi. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -15,3 +16,4 @@
  */
 + (NSString *)hmacSHA256:(NSString *)key message:(NSString *)data;
 @end
+

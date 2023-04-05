@@ -25,8 +25,8 @@ class MeasurementModel {
         inputTap = PublishSubject<Bool>()
     
     //output
-    let outputFingerStatus = PublishSubject<MeasurementViewModel.status>(),
-        outputDeviceStatus = PublishSubject<MeasurementViewModel.status>(),
+    let outputFingerStatus = PublishSubject<MeasurementModel.status>(),
+        outputDeviceStatus = PublishSubject<MeasurementModel.status>()
     
     let secondRemaining = PublishSubject<Double>()
     let measurementCompleteRatio = PublishSubject<String>()
@@ -62,7 +62,7 @@ class MeasurementModel {
         forward: Bool,
         back: Bool,
         tap: Bool
-    ) -> MeasurementViewModel.status {
+    ) -> MeasurementModel.status {
         var result = status.noTap
         if forward, !back, tap {
             result = .tap

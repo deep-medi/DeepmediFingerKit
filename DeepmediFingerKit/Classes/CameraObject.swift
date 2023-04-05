@@ -19,7 +19,7 @@ public class CameraObject: NSObject {
         delegate object: AVCaptureVideoDataOutputSampleBufferDelegate
     ) {
         self.cameraSetup.startDetection()
-        self.cameraSetup.setupCameraFormat(30.0)
+        self.cameraSetup.setupCameraFormat(60.0)
         self.cameraSetup.setupVideoOutput(object)
     }
     

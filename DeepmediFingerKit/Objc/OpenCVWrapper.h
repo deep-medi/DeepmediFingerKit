@@ -1,8 +1,8 @@
 //
-//  OpenCVWrapper.h
-//  DeepmediFaceKit
+//  OpenCVWraaper.h
+//  Avocado_ios
 //
-//  Created by Demian on 2023/02/09.
+//  Created by 딥메디 on 2020/10/28.
 //
 
 #import <UIKit/UIKit.h>
@@ -12,9 +12,6 @@
 @interface OpenCVWrapper : NSObject
 
 + (NSString *)openCVVersionString;
++ (NSArray *)preccessbuffer:(CMSampleBufferRef)sampleBuffer hasTorch:(BOOL)isTorch device: (NSString *)device;
 
-+ (NSArray *)detectFaceSampleBuffer:(CMSampleBufferRef)sampleBuffer;
-+ (unsigned char *)detectChestSampleBuffer:(CMSampleBufferRef)sampleBuffer;
-
-+ (UIImage *)convertingBuffer:(CMSampleBufferRef)sampleBuffer;
 @end

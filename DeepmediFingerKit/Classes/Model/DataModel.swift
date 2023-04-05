@@ -14,8 +14,6 @@ class DataModel {
     
     static let shared = DataModel()
     
-    var timeStamp: Double = 0, r: Float = 0, g: Float = 0, b: Float = 0
-    
     var rgbDataPath: URL?
     var gTempData = [Float]()
     var timeStamp = [Double](),

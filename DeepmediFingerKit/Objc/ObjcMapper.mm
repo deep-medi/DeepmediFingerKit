@@ -1,8 +1,9 @@
 //
 //  ObjcMapper.m
-//  DeepmediFaceKit
+//  healthCare
 //
-//  Created by Demian on 2023/02/09.
+//  Created by KangNamgyu on 8/17/18.
+//  Copyright © 2018 deepmedi. All rights reserved.
 //
 
 #import "ObjcMapper.h"

@@ -2,11 +2,12 @@
 
 import UIKit
 import CoreMotion
+import AVKit
 import RxSwift
 import RxCocoa
 import Then
 
-open class FingerMeasurement: NSObject {
+open class FingerMeasurementKit: NSObject {
     private let bag = DisposeBag()
     
     private let document = Document(),
@@ -28,7 +29,7 @@ open class FingerMeasurement: NSObject {
                 rgbMeasurementTime = Double(),
                 measurementTimer = Timer(),
                 noTapTimer = Timer(),
-                motionManager = CMMotionManager(),
+                motionManager = CMMotionManager()
     
     // MARK: isTapCheck
     private var filterG = [Float]()
@@ -69,25 +70,25 @@ open class FingerMeasurement: NSObject {
     }
     
     public func measuredValue(
-        _ value: @escaping (Double)->()
+        _ filtered: @escaping (Double)->()
     ) {
         let value = self.measurementModel.inputFilteringGvalue
         value
             .observe(on: MainScheduler.asyncInstance)
             .asDriver(onErrorJustReturn: 0)
-            .drive(onNext: { filted in
-                value(filted)
+            .drive(onNext: { value in
+                filtered(value)
             })
             .disposed(by: bag)
     }
     
     private func setTorch(camSetup: CameraSetup, torch: Bool) {
-        guard camSetup.hasTorch() else { return print("has not torch") }
+        guard cameraSetup.hasTorch() else { return print("has not torch") }
         switch torch {
         case true:
-            camSetup.useCaptureDevice()?.torchMode = .on
+            cameraSetup.useCaptureDevice()?.torchMode = .on
         case false:
-            camSetup.useCaptureDevice()?.torchMode = .off
+            cameraSetup.useCaptureDevice()?.torchMode = .off
         }
     }
     
@@ -96,27 +97,29 @@ open class FingerMeasurement: NSObject {
         self.motionManager.accelerometerUpdateInterval = 1 / 100
         self.motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (acc, err)  in
             let z = accelemeterData(acc, err)
-            if z > 0.0 {
-                self.measurementModel.inputAccZback.onNext(true)
-                self.measurementModel.inputAccZforward.onNext(false)
-            } else {
-                self.measurementModel.inputAccZback.onNext(false)
-                self.measurementModel.inputAccZforward.onNext(true)
-            }
+            self.measurementModel.inputAccZback.onNext(z > 0.0)
+            self.measurementModel.inputAccZforward.onNext(z <= 0.0)
+//            if z > 0.0 {
+//                self.measurementModel.inputAccZback.onNext(true)
+//                self.measurementModel.inputAccZforward.onNext(false)
+//            } else {
+//                self.measurementModel.inputAccZback.onNext(false)
+//                self.measurementModel.inputAccZforward.onNext(true)
+//            }
         }
         
         func accelemeterData(
             _ acc: CMAccelerometerData?,
             _ err: Error?
         ) -> Float {
-            
+            var z = Float()
             if err != nil {
-                self.z = 0.1
+                z = 0.1
             } else {
                 guard let accMeasureData = acc?.acceleration else { fatalError("acc measure data error") }
-                self.z = Float(accMeasureData.z)
+                z = Float(accMeasureData.z)
             }
-            return self.z
+            return z
         }
     }
     
@@ -161,11 +164,11 @@ open class FingerMeasurement: NSObject {
                     }
                 case .noTap:
                     if (self.tapCount.count >= 120), (self.noTapCount.count == (self.limitTapCount * 2)) {
-                        self.stopMeasurement(error)
+                        self.stopMeasurement()
                     }
                 case .back, .flip:
                     if self.stopMeasureCount.count == 40 {
-                        self.stopMeasurement(error)
+                        self.stopMeasurement()
                     }
                 }
             })
@@ -194,7 +197,6 @@ open class FingerMeasurement: NSObject {
                 self.noTapCount.removeAll()
                 self.stopMeasureCount.removeAll()
                 self.backMeasureCount.removeAll()
-                completion()
             }
         }
     }
@@ -208,34 +210,40 @@ open class FingerMeasurement: NSObject {
     }
     
     /// 측정 중 멈춤 후 재시작
-    private func stopMeasurement(_ error: (()->())?) {
+    private func stopMeasurement() {
         self.tapCount.removeAll()
         self.noTapCount.removeAll()
         self.stopMeasureCount.removeAll()
-        error?()
     }
 }
 // MARK: AVCapture Delegate ----------------------------------------------------------------
-extension FingerMeasurement: AVCaptureVideoDataOutputSampleBufferDelegate {
+extension FingerMeasurementKit: AVCaptureVideoDataOutputSampleBufferDelegate {
     
-    public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+    public func captureOutput(
+        _ output: AVCaptureOutput,
+        didOutput sampleBuffer: CMSampleBuffer,
+        from connection: AVCaptureConnection
+    ) {
         guard let cvimgRef: CVImageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { fatalError("cvimg ref") }
         let hasTorch = self.cameraSetup.hasTorch()
         
         CVPixelBufferLockBaseAddress(cvimgRef, CVPixelBufferLockFlags(rawValue: 0))
         // MARK: RGB data
-        guard let openCVDatas = OpenCVWrapper.preccessbuffer(sampleBuffer, hasTorch: hasTorch, device: UIDevice.current.modelName) else { return print("objc casting error") }
+        guard let openCVDatas = OpenCVWrapper.preccessbuffer(
+            sampleBuffer,
+            hasTorch: hasTorch,
+            device: UIDevice.current.modelName) else { return print("objc casting error") }
         guard let tap = openCVDatas[0] as? Bool else { return print("objc bool casting error") }
         guard let r = openCVDatas[1] as? Float,
               let g = openCVDatas[2] as? Float,
               let b = openCVDatas[3] as? Float else { return print("objc rgb casting error") }
         
-        self.measurementViewModel.inputFingerTap.onNext(tap)
-        self.dataModel.collectRGB(r: r, g: g, b: b)
-        self.percentage = (Double(self.dataModel.gData.count) / (self.FRAMES_PER_SECOND * Double(self.model.measurementTime)))
-        if self.isComplete {
-            self.measurementViewModel.inputPercentage.onNext(self.percentage)
-        }
+        self.measurementModel.inputFingerTap.onNext(tap)
+        let timeStamp = (Date().timeIntervalSince1970 * 1000000).rounded()
+        self.dataModel.collectRGB(
+            timeStamp: timeStamp,
+            r: r, g: g, b: b
+        )
         
         CVPixelBufferUnlockBaseAddress(cvimgRef, CVPixelBufferLockFlags(rawValue: 0))
     }
@@ -249,7 +257,7 @@ extension FingerMeasurement: AVCaptureVideoDataOutputSampleBufferDelegate {
     }
     
     @objc private func updatedChartData() {
-        self.measurementViewModel.inputFilteringGvalue.onNext(self.filter(g: self.dataModel.gTempData))
+        self.measurementModel.inputFilteringGvalue.onNext(self.filter(g: self.dataModel.gTempData))
     }
     
     private func filter(g: [Float]) -> Double {

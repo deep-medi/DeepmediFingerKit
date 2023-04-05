@@ -1,22 +1,49 @@
 {
   "name": "DeepmediFingerKit",
   "version": "0.1.0",
-  "summary": "A short description of DeepmediFingerKit.",
+  "summary": "Framework for measurement after finger tap",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/demianjun@gmail.com/DeepmediFingerKit",
+  "homepage": "https://github.com/deep-medi/DeepmediFingerKit",
   "license": {
-    "type": "MIT",
+    "type": "BSD",
     "file": "LICENSE"
   },
   "authors": {
-    "demianjun@gmail.com": "demianjun@gmail.com"
+    "demianjun": "demianjun@gmail.com"
   },
   "source": {
-    "git": "https://github.com/demianjun@gmail.com/DeepmediFingerKit.git",
+    "git": "https://github.com/deep-medi/DeepmediFingerKit.git",
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "10.0"
+    "ios": "13.0"
   },
-  "source_files": "DeepmediFingerKit/Classes/**/*"
+  "source_files": [
+    "DeepmediFingerKit/Objc/*",
+    "DeepmediFingerKit/Classes/**/*"
+  ],
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "dependencies": {
+    "Then": [
+
+    ],
+    "Alamofire": [
+      "~> 5.2.0"
+    ],
+    "OpenCV": [
+
+    ],
+    "RxSwift": [
+      "~> 6.0.0"
+    ],
+    "RxCocoa": [
+      "~> 6.0.0"
+    ]
+  }
 }

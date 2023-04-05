@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DeepmediFingerKit'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'Framework for measurement after finger tap'
 
 # This description is used to generate tags and improve search results.
@@ -22,16 +22,12 @@ TODO: Add long description of the pod here.
                        DESC
 
   s.homepage         = 'https://github.com/deep-medi/DeepmediFingerKit'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'BSD', :file => 'LICENSE' }
   s.author           = { 'demianjun' => 'demianjun@gmail.com' }
-
   s.source           = { :git => 'https://github.com/deep-medi/DeepmediFingerKit.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
   s.ios.deployment_target = '13.0'
-
-  s.source_files = 'DeepmediFingerKit/Classes/**/*'
+#  s.source_files = 'DeepmediFingerKit/Objc/*','DeepmediFingerKit/Classes/**/*'
+  s.source_files = 'DeepmediFingerKit','DeepmediFingerKit/Objc/*.{h,mm}', 'DeepmediFingerKit/Classes/**/*.{h,swift}'
   
   s.static_framework = true
   s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }

@@ -1,16 +1,45 @@
 PODS:
-  - DeepmediFingerKit (0.1.0)
+  - Alamofire (5.2.2)
+  - DeepmediFingerKit (0.1.0):
+    - Alamofire (~> 5.2.0)
+    - OpenCV
+    - RxCocoa (~> 6.0.0)
+    - RxSwift (~> 6.0.0)
+    - Then
+  - OpenCV (4.3.0)
+  - RxCocoa (6.0.0):
+    - RxRelay (= 6.0.0)
+    - RxSwift (= 6.0.0)
+  - RxRelay (6.0.0):
+    - RxSwift (= 6.0.0)
+  - RxSwift (6.0.0)
+  - Then (3.0.0)
 
 DEPENDENCIES:
   - DeepmediFingerKit (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - OpenCV
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - Then
 
 EXTERNAL SOURCES:
   DeepmediFingerKit:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DeepmediFingerKit: 413a2bdbef306e7667e55c058327de0a942f7b60
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  DeepmediFingerKit: 58fc3dee1a6fc031db6d0a43dfc2dd9e9aeca1a3
+  OpenCV: 681e0451c1e54c5930a8922277f817ed5d5ab459
+  RxCocoa: 3f79328fafa3645b34600f37c31e64c73ae3a80e
+  RxRelay: 8d593be109c06ea850df027351beba614b012ffb
+  RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
+  Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
 
-PODFILE CHECKSUM: 929115228636ba86c41d6b748789f73549ec1c2f
+PODFILE CHECKSUM: 026988d13c919f3537eb88163e88219dcbbfb961
 
 COCOAPODS: 1.12.0

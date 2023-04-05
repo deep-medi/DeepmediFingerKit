@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B0BCA4A9523C98EF43C092A /* Pods_DeepmediFingerKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64C5F6CFF527F61268FC64FE /* Pods_DeepmediFingerKit_Example.framework */; };
-		0CE95D82F29DF6C5105C788B /* Pods_DeepmediFingerKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89DD20C6091A76FEAFA30B4A /* Pods_DeepmediFingerKit_Tests.framework */; };
+		5F3B512195653CD7518499E3 /* libPods-DeepmediFingerKit_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AED12DE6AC73F85E2D918277 /* libPods-DeepmediFingerKit_Example.a */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		6224F775CFF54614269BF056 /* libPods-DeepmediFingerKit_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C80CD1BDA5B058E85F4EC39 /* libPods-DeepmediFingerKit_Tests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +40,10 @@
 		607FACE51AFB9204008FA782 /* DeepmediFingerKit_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeepmediFingerKit_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		64C5F6CFF527F61268FC64FE /* Pods_DeepmediFingerKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeepmediFingerKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		713CB31AD8B3895B21789565 /* DeepmediFingerKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DeepmediFingerKit.podspec; path = ../DeepmediFingerKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		89DD20C6091A76FEAFA30B4A /* Pods_DeepmediFingerKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeepmediFingerKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C80CD1BDA5B058E85F4EC39 /* libPods-DeepmediFingerKit_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeepmediFingerKit_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A091B4D4B62AF4AC43AC9BEC /* Pods-DeepmediFingerKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepmediFingerKit_Tests.debug.xcconfig"; path = "Target Support Files/Pods-DeepmediFingerKit_Tests/Pods-DeepmediFingerKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		AED12DE6AC73F85E2D918277 /* libPods-DeepmediFingerKit_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeepmediFingerKit_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C38E32D530BC28F1344B972F /* Pods-DeepmediFingerKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepmediFingerKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-DeepmediFingerKit_Example/Pods-DeepmediFingerKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		DB434F6BEE8292757EDC0F2C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F67A85DB4E4F8928079D736E /* Pods-DeepmediFingerKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepmediFingerKit_Example.release.xcconfig"; path = "Target Support Files/Pods-DeepmediFingerKit_Example/Pods-DeepmediFingerKit_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -54,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B0BCA4A9523C98EF43C092A /* Pods_DeepmediFingerKit_Example.framework in Frameworks */,
+				5F3B512195653CD7518499E3 /* libPods-DeepmediFingerKit_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CE95D82F29DF6C5105C788B /* Pods_DeepmediFingerKit_Tests.framework in Frameworks */,
+				6224F775CFF54614269BF056 /* libPods-DeepmediFingerKit_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,8 +153,8 @@
 		F423AD2B0FB6386E65B96AC5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				64C5F6CFF527F61268FC64FE /* Pods_DeepmediFingerKit_Example.framework */,
-				89DD20C6091A76FEAFA30B4A /* Pods_DeepmediFingerKit_Tests.framework */,
+				AED12DE6AC73F85E2D918277 /* libPods-DeepmediFingerKit_Example.a */,
+				9C80CD1BDA5B058E85F4EC39 /* libPods-DeepmediFingerKit_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -170,7 +170,6 @@
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				1CB1343CE305DC8EFD73542A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -212,10 +211,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = ALL2F32G29;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = ALL2F32G29;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -282,24 +283,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1CB1343CE305DC8EFD73542A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DeepmediFingerKit_Example/Pods-DeepmediFingerKit_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/DeepmediFingerKit/DeepmediFingerKit.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeepmediFingerKit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DeepmediFingerKit_Example/Pods-DeepmediFingerKit_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2160FD9A821ABD53D233EB0C /* [CP] Check Pods Manifest.lock */ = {
@@ -478,7 +461,9 @@
 			baseConfigurationReference = C38E32D530BC28F1344B972F /* Pods-DeepmediFingerKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ALL2F32G29;
 				INFOPLIST_FILE = DeepmediFingerKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -493,7 +478,9 @@
 			baseConfigurationReference = F67A85DB4E4F8928079D736E /* Pods-DeepmediFingerKit_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ALL2F32G29;
 				INFOPLIST_FILE = DeepmediFingerKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -507,6 +494,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A091B4D4B62AF4AC43AC9BEC /* Pods-DeepmediFingerKit_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = ALL2F32G29;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -516,6 +504,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -529,11 +518,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3E80517739D0618092B4A903 /* Pods-DeepmediFingerKit_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = ALL2F32G29;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

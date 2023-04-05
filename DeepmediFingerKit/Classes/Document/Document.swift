@@ -10,7 +10,6 @@ import UIKit
 
 public class Document {
     private let fileManager = FileManager()
-    private let rgb = RGB.shared
     private let dataModel = DataModel.shared
     
     // MARK: 측정데이터 파일생성
@@ -19,7 +18,7 @@ public class Document {
         let docuURL = self.fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
         let fileURL = docuURL.appendingPathComponent("PPG_DATA_ios.txt")
         
-        self.dataModel.rgbPath = fileURL
+        self.dataModel.rgbDataPath = fileURL
         self.transrateDataToTxtFile(fileURL)
     }
     
@@ -39,6 +38,6 @@ public class Document {
             self.dataModel.rgbSubStr += "\(self.dataModel.rgbDataToArr[i])"
         }
         
-        try? self.dataModel.rgbSubStr.write(to: fileURL, atomically: true, encoding: String.Encoding.utf8)
+        try? self.dataModel.rgbSubStr.write(to: file, atomically: true, encoding: String.Encoding.utf8)
     }
 }

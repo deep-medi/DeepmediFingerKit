@@ -1,4 +1,4 @@
-framework module Pods_DeepmediFingerKit_Example {
+module Pods_DeepmediFingerKit_Example {
   umbrella header "Pods-DeepmediFingerKit_Example-umbrella.h"
 
   export *
