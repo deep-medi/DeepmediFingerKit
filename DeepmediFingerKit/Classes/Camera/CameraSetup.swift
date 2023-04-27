@@ -10,28 +10,27 @@ import AVKit
 
 class CameraSetup: NSObject {
     
+    static let manager = CameraSetup()
+    
     private var session = AVCaptureSession()
     private var captureDevice: AVCaptureDevice?
     private var customISO: Float?
     private let device = UIDevice.current
     
     func initModel(
-        session: AVCaptureSession = AVCaptureSession(),
-        captureDevice: AVCaptureDevice? = nil,
-        customISO: Float? = nil
+        session: AVCaptureSession,
+        captureDevice: AVCaptureDevice? = nil
     ) {
         self.session = session
         self.captureDevice = captureDevice
-        self.customISO = customISO
     }
-    
-    func usePreViewLayer() -> AVCaptureVideoPreviewLayer {
-        let preViewLayer = AVCaptureVideoPreviewLayer(session: session)
-        return preViewLayer
-    }
-    
+
     func useCaptureDevice() -> AVCaptureDevice? {
         return self.captureDevice
+    }
+    
+    func useSession() -> AVCaptureSession {
+        return self.session
     }
     
     func hasTorch() -> Bool {
@@ -63,6 +62,7 @@ class CameraSetup: NSObject {
             }
         }
     }
+    
     func setupCameraFormat(
         _ framePerSec: Double
     ) {

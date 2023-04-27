@@ -17,19 +17,14 @@ class MeasurementModel {
     let inputAccZforward = PublishSubject<Bool>(),
         inputAccZback = PublishSubject<Bool>(),
         inputFingerTap = PublishSubject<Bool>(),
-        inputPercentage = BehaviorSubject(value: 0.0),
         inputFilteringGvalue = PublishSubject<Double>()
     
-    let inputDeviceForward = PublishSubject<Bool>(),
-        inputDeviceBack = PublishSubject<Bool>(),
-        inputTap = PublishSubject<Bool>()
-    
     //output
-    let outputFingerStatus = PublishSubject<MeasurementModel.status>(),
-        outputDeviceStatus = PublishSubject<MeasurementModel.status>()
-    
+    let outputFingerStatus = PublishSubject<MeasurementModel.status>()
     let secondRemaining = PublishSubject<Double>()
-    let measurementCompleteRatio = PublishSubject<String>()
+    let measurementRatio = PublishSubject<String>()
+    let measurementComplete = BehaviorSubject(value: (false, URL(string: "")))
+    let measurementStop = PublishSubject<Bool>()
     
     //bind
     func bindFingerTap() {
@@ -39,23 +34,14 @@ class MeasurementModel {
                            self.inputFingerTap)
             .observe(on: MainScheduler.instance)
             .asObservable()
-            .map { self.measurePossible(forward: $0,
-                                        back: $1,
-                                        tap: $2) }
+            .map {
+                self.measurePossible(
+                    forward: $0,
+                    back: $1,
+                    tap: $2
+                )
+            }
             .bind(to: self.outputFingerStatus)
-    }
-    
-    func bindDevicePosition() {
-        _ = Observable
-            .combineLatest(self.inputDeviceForward,
-                           self.inputDeviceBack,
-                           self.inputTap)
-            .observe(on: MainScheduler.instance)
-            .asObservable()
-            .map { self.measurePossible(forward: $0,
-                                        back: $1,
-                                        tap: $2) }
-            .bind(to: self.outputDeviceStatus)
     }
     
     func measurePossible(
