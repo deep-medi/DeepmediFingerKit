@@ -28,6 +28,7 @@ class DataModel {
     func initRGBData() {
         self.rData.removeAll()
         self.gData.removeAll()
+        self.gTempData.removeAll()
         self.bData.removeAll()
         self.timeStamp.removeAll()
         

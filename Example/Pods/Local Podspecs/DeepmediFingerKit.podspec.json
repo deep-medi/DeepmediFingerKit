@@ -1,6 +1,6 @@
 {
   "name": "DeepmediFingerKit",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "summary": "Framework for measurement after finger tap",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/deep-medi/DeepmediFingerKit",
@@ -13,14 +13,15 @@
   },
   "source": {
     "git": "https://github.com/deep-medi/DeepmediFingerKit.git",
-    "tag": "0.1.0"
+    "tag": "0.2.0"
   },
   "platforms": {
     "ios": "13.0"
   },
   "source_files": [
-    "DeepmediFingerKit/Objc/*",
-    "DeepmediFingerKit/Classes/**/*"
+    "DeepmediFingerKit",
+    "DeepmediFingerKit/Objc/*.{h,mm}",
+    "DeepmediFingerKit/Classes/**/*.{h,swift}"
   ],
   "static_framework": true,
   "pod_target_xcconfig": {

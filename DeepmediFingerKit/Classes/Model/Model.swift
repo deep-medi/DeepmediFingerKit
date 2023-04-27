@@ -10,6 +10,11 @@ import UIKit
 class Model {
     static let shared = Model()
     
-    var limitTapTime = 3
-    var measurementTime = 30.0
+    var limitTapTime: Int
+    var measurementTime: Double
+    
+    init() {
+        self.limitTapTime = 3
+        self.measurementTime = 30.0
+    }
 }

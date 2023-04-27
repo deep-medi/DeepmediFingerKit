@@ -9,25 +9,19 @@ import Foundation
 import AVKit
 
 public class CameraObject: NSObject {
-    let cameraSetup = CameraSetup()
+    let cameraSetup = CameraSetup.manager
     
-    public func initalized(session: AVCaptureSession, captureDevice: AVCaptureDevice?) {
-        self.cameraSetup.initModel(session: session, captureDevice: captureDevice)
-    }
-    
-    public func setup(
-        delegate object: AVCaptureVideoDataOutputSampleBufferDelegate
+    public func initalized(
+        delegate: AVCaptureVideoDataOutputSampleBufferDelegate,
+        session: AVCaptureSession,
+        captureDevice: AVCaptureDevice?
     ) {
+        self.cameraSetup.initModel(
+            session: session,
+            captureDevice: captureDevice
+        )
+        self.cameraSetup.setupVideoOutput(delegate)
         self.cameraSetup.startDetection()
         self.cameraSetup.setupCameraFormat(60.0)
-        self.cameraSetup.setupVideoOutput(object)
-    }
-    
-    public func previewLayer() -> AVCaptureVideoPreviewLayer {
-        return self.cameraSetup.usePreViewLayer()
-    }
-    
-    func AELock() {
-        self.cameraSetup.setUpCatureDevice()
     }
 }
