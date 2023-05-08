@@ -79,8 +79,15 @@ class ViewController: UIViewController {
         fingerMeasureKit.stopMeasurement { isStop in
             if isStop {
                 self.fingerMeasureKit.stopSession()
-                let alertVC = UIAlertController(title: "Stop", message: "", preferredStyle: .alert)
-                let action = UIAlertAction(title: "cancel", style: .default) { _ in
+                let alertVC = UIAlertController(
+                    title: "Stop",
+                    message: "",
+                    preferredStyle: .alert
+                )
+                let action = UIAlertAction(
+                    title: "cancel",
+                    style: .default
+                ) { _ in
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         self.fingerMeasureKit.startSession()
                     }
@@ -95,7 +102,10 @@ class ViewController: UIViewController {
         fingerMeasureKit.finishedMeasurement { success, filePath in
             print("success: \(success), filePath: \(filePath)")
             if success {
-                //                self.fingerMeasureKit.stopSession()
+                self.header.v2Header(method: .post,
+                                     uri: "uri",
+                                     secretKey: "secretKey",
+                                     apiKey: "apiKey")
                 self.dismiss(animated: true)
             }
         }

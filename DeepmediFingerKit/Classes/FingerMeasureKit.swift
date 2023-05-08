@@ -40,7 +40,7 @@ open class FingerMeasurementKit: NSObject {
     private var isDeviceBack = Bool(),
                 isTap = Bool(),
                 isTorch = true,
-                isComplete = false
+                isComplete = Bool()
 
     public func timesLeft(
         _ time: @escaping (Double)->()
@@ -122,6 +122,7 @@ open class FingerMeasurementKit: NSObject {
     open func startSession() {
         DispatchQueue.main.async {
             self.measurementRGBfromFinger()
+            self.isComplete = false
             self.measurementModel.bindFingerTap()
             self.measurementTime = self.model.measurementTime
             self.cameraSetup.useSession().startRunning()
@@ -134,8 +135,6 @@ open class FingerMeasurementKit: NSObject {
     }
     
     open func stopSession() {
-        self.motionManager.stopAccelerometerUpdates()
-        self.chartTimer.invalidate()
         self.stopMeasurement()
     }
     
@@ -185,14 +184,14 @@ open class FingerMeasurementKit: NSObject {
     private func measurementRGBfromFinger() {
         let status = self.measurementModel.outputFingerStatus
         status
-            .debug()
+//            .debug()
             .observe(on: MainScheduler.instance)
             .asDriver(onErrorJustReturn: .noTap)
             .drive(onNext: { [weak self] status in
                 guard let self = self else { return }
                 
                 if status == .tap && (self.tapCount.count <= self.limitTapCount * 12) {
-                    if self.tapCount.count == 30 {
+                    if self.tapCount.count == 30 && !self.isComplete {
                         self.chartUpdateTimer()
                         self.cameraSetup.setUpCatureDevice()
                         self.isTap = true
@@ -217,7 +216,7 @@ open class FingerMeasurementKit: NSObject {
                             self.startTimer()
                         }
                     }
-                    guard (self.tapCount.count < self.limitTapCount / 2) && self.isComplete else {
+                    guard (self.tapCount.count < self.limitTapCount / 2) && !self.isComplete else {
                         return
                     }
                     self.measurementModel.measurementStop.onNext(false)
@@ -258,7 +257,6 @@ open class FingerMeasurementKit: NSObject {
             secondRemaining.onNext(self.measurementTime)
             measurementRatio.onNext("\(100 - Int(self.measurementTime * 100.0 / self.model.measurementTime))%")
             if self.measurementTime <= 0.0 {
-                self.stopMeasurement()
                 self.notiGenerator.notificationOccurred(.success)
                 self.document.madeMeasureData()
                 if let rgbPath = self.dataModel.rgbDataPath {
@@ -266,11 +264,13 @@ open class FingerMeasurementKit: NSObject {
                 } else {
                     completion.onNext((result: false, url: URL(string: "")))
                 }
+                self.stopMeasurement()
             }
         }
     }
     /// 측정 중 멈춤 후 재시작
     private func stopMeasurement() {
+        self.cameraSetup.useCaptureDevice()?.exposureMode = .autoExpose
         self.cameraSetup.useSession().stopRunning()
         self.motionManager.stopAccelerometerUpdates()
         self.measurementTimer.invalidate()
@@ -280,7 +280,7 @@ open class FingerMeasurementKit: NSObject {
     
     /// Camera stop시 초기화 되는 요소들
     private func elementInitalize() {
-        self.isComplete = false
+        self.isComplete = true
         self.dataModel.initRGBData()
         self.tapCount.removeAll()
         self.noTapCount.removeAll()
