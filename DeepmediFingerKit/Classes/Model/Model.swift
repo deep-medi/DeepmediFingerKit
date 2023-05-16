@@ -12,9 +12,11 @@ class Model {
     
     var limitTapTime: Int
     var measurementTime: Double
+    var breathMeasurement: Bool
     
     init() {
         self.limitTapTime = 3
         self.measurementTime = 30.0
+        self.breathMeasurement = true
     }
 }
