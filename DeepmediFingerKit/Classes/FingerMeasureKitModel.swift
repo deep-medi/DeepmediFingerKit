@@ -15,4 +15,10 @@ public class FingerMeasureKitModel: NSObject {
     ) {
         self.model.measurementTime = time ?? 30.0
     }
+    
+    public func doMeasurementBreath(
+        _ measurement: Bool
+    ) {
+        self.model.breathMeasurement = measurement
+    }
 }

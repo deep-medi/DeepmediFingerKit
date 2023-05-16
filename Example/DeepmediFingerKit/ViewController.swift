@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     let fingerMeasureKitModel = FingerMeasureKitModel()
 
     let preview = CameraPreview()
-    let startButton = UIButton().then { b in
+    let previousButton = UIButton().then { b in
         b.setTitle("Previous", for: .normal)
         b.setTitleColor(.white, for: .normal)
         b.backgroundColor = .black
@@ -40,6 +40,7 @@ class ViewController: UIViewController {
             captureDevice: captureDevice
         )
         self.fingerMeasureKitModel.setMeasurementTime(30)
+        self.fingerMeasureKitModel.doMeasurementBreath(true)
         
         self.previewLayer = AVCaptureVideoPreviewLayer(session: self.session)
         
@@ -99,13 +100,15 @@ class ViewController: UIViewController {
             }
         }
         
-        fingerMeasureKit.finishedMeasurement { success, filePath in
-            print("success: \(success), filePath: \(filePath)")
+        fingerMeasureKit.finishedMeasurement { success, rgbPath, accPath, gyroPath in
+            print("rgbPath:", rgbPath)
+            print("accPath:", accPath)
+            print("gyroPath:", gyroPath)
             if success {
-                self.header.v2Header(method: .post,
-                                     uri: "uri",
-                                     secretKey: "secretKey",
-                                     apiKey: "apiKey")
+                let header = self.header.v2Header(method: .post,
+                                                  uri: "uri",
+                                                  secretKey: "secretKey",
+                                                  apiKey: "apiKey")
                 self.dismiss(animated: true)
             }
         }
@@ -113,7 +116,7 @@ class ViewController: UIViewController {
     
     func setupUI() {
         self.view.addSubview(preview)
-        self.view.addSubview(startButton)
+        self.view.addSubview(previousButton)
 
         let width = UIScreen.main.bounds.width * 0.8,
             height = UIScreen.main.bounds.height * 0.8
@@ -125,14 +128,14 @@ class ViewController: UIViewController {
             make.height.equalTo(width)
         }
 
-        startButton.snp.makeConstraints { make in
+        previousButton.snp.makeConstraints { make in
             make.width.height.equalTo(width * 0.3)
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().offset(-80)
         }
 
-        startButton.layer.cornerRadius = (width * 0.3) / 2
-        startButton.addTarget(
+        previousButton.layer.cornerRadius = (width * 0.3) / 2
+        previousButton.addTarget(
             self,
             action: #selector(prev),
             for: .touchUpInside

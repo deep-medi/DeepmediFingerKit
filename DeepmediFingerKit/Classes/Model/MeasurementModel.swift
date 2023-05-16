@@ -23,7 +23,7 @@ class MeasurementModel {
     let outputFingerStatus = PublishSubject<MeasurementModel.status>()
     let secondRemaining = PublishSubject<Double>()
     let measurementRatio = PublishSubject<String>()
-    let measurementComplete = BehaviorSubject(value: (false, URL(string: "")))
+    let measurementComplete = BehaviorSubject(value: (false, URL(string: ""), URL(string: ""), URL(string: "")))
     let measurementStop = PublishSubject<Bool>()
     
     //bind

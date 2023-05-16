@@ -13,20 +13,57 @@ public class Document {
     private let dataModel = DataModel.shared
     
     // MARK: 측정데이터 파일생성
-    func madeMeasureData() {
+    func madeMeasureData(
+        data type: DataModel.DataType
+    ) {
         
         let docuURL = self.fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let fileURL = docuURL.appendingPathComponent("PPG_DATA_ios.txt")
+        var fileURL: URL
         
-        self.dataModel.rgbDataPath = fileURL
-        self.transrateDataToTxtFile(fileURL)
+        switch type {
+            
+        case .rgb:
+            fileURL = docuURL.appendingPathComponent("PPG_DATA_ios.txt")
+            self.dataModel.rgbDataPath = fileURL
+        case .acc:
+            fileURL = docuURL.appendingPathComponent("ACC_DATA_ios.txt")
+            self.dataModel.accDataPath = fileURL
+        case .gyro:
+            fileURL = docuURL.appendingPathComponent("GYRO_DATA_ios.txt")
+            self.dataModel.gyroDataPath = fileURL
+        }
+        
+        self.transrateDataToTxtFile(fileURL, data: type)
     }
     
     private func transrateDataToTxtFile(
-        _ file: URL
+        _ file: URL,
+        data type: DataModel.DataType
     ) {
-        self.dataModel.rgbDatas.forEach { dataMass in
-            self.dataModel.rgbDataToArr.append(
+        var data: [(Double, Float, Float, Float)],
+            dataToArr: [String],
+            dataSubStr: String
+        
+        switch type {
+            
+        case .rgb:
+            data = self.dataModel.rgbData
+            dataToArr = self.dataModel.rgbDataToArr
+            dataSubStr = self.dataModel.rgbSubStr
+            
+        case .acc:
+            data = self.dataModel.accData
+            dataToArr = self.dataModel.accDataToArr
+            dataSubStr = self.dataModel.accSubStr
+            
+        case .gyro:
+            data = self.dataModel.gyroData
+            dataToArr = self.dataModel.gyroDataToArr
+            dataSubStr = self.dataModel.gyroSubStr
+        }
+        
+        data.forEach { dataMass in
+            dataToArr.append(
                 "\(dataMass.0 as Float64)\t"
                 + "\(dataMass.1)\t"
                 + "\(dataMass.2)\t"
@@ -34,10 +71,10 @@ public class Document {
             )
         }
         
-        for i in self.dataModel.rgbDataToArr.indices {
-            self.dataModel.rgbSubStr += "\(self.dataModel.rgbDataToArr[i])"
+        for i in dataToArr.indices {
+            dataSubStr += "\(dataToArr[i])"
         }
         
-        try? self.dataModel.rgbSubStr.write(to: file, atomically: true, encoding: String.Encoding.utf8)
+        try? dataSubStr.write(to: file, atomically: true, encoding: String.Encoding.utf8)
     }
 }
