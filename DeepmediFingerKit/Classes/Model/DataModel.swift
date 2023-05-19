@@ -92,6 +92,7 @@ class DataModel {
         b: Float
     ) {
         let timeStamp = (Date().timeIntervalSince1970 * 1000000).rounded()
+        guard timeStamp > 100 else { return print("rgb timeStamp error") }
         let dataFormat = (timeStamp, r, g, b)
         
         self.gTempData.append(g)
@@ -119,6 +120,7 @@ class DataModel {
             z = Float(accMeasureData.z)
             
             let timeStamp = (Date().timeIntervalSince1970 * 1000000).rounded()
+            guard timeStamp > 100 else { return z }
             let dataFormat = (timeStamp, x, y, z)
             
             self.accXdata.append(x)
@@ -148,6 +150,7 @@ class DataModel {
             z = Float(gyroMeasureData.z)
             
             let timeStamp = (Date().timeIntervalSince1970 * 1000000).rounded()
+            guard timeStamp > 100 else { return print("gyro timeStamp error") }
             let dataFormat = (timeStamp, x, y, z)
             
             self.gyroXdata.append(x)
