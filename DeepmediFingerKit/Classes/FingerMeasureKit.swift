@@ -43,12 +43,12 @@ open class FingerMeasurementKit: NSObject {
                 isComplete = Bool()
     
     public func timesLeft(
-        _ time: @escaping (Double)->()
+        _ time: @escaping (Int)->()
     ) {
         let secondRemaining = self.measurementModel.secondRemaining
         secondRemaining
             .observe(on: MainScheduler.asyncInstance)
-            .asDriver(onErrorJustReturn: 0.0)
+            .asDriver(onErrorJustReturn: 0)
             .drive(onNext: { count in
                 time(count)
             })
@@ -58,7 +58,7 @@ open class FingerMeasurementKit: NSObject {
     public func measurementCompleteRatio(
         _ com: @escaping((String) -> ())
     ) {
-        let ratio = self.measurementModel.measurementRatio
+        let ratio = self.measurementModel.measurementCompleteRatio
         ratio
             .asDriver(onErrorJustReturn: "0%")
             .asDriver()
@@ -236,7 +236,7 @@ open class FingerMeasurementKit: NSObject {
     private func startTimer() {
         let completion = self.measurementModel.measurementComplete,
             secondRemaining = self.measurementModel.secondRemaining,
-            measurementRatio = self.measurementModel.measurementRatio
+            measurementCompleteRatio = self.measurementModel.measurementCompleteRatio
         
         self.isComplete = true
         
@@ -244,9 +244,10 @@ open class FingerMeasurementKit: NSObject {
             withTimeInterval: 0.1,
             repeats: true
         ) { timer in
+            let ratio = Int(100.0 - self.measurementTime * 100.0 / self.model.measurementTime)
+            measurementCompleteRatio.onNext("\(ratio)%")
+            secondRemaining.onNext(Int(self.measurementTime))
             self.measurementTime -= 0.1
-            secondRemaining.onNext(self.measurementTime)
-            measurementRatio.onNext("\(100 - Int(self.measurementTime * 100.0 / self.model.measurementTime))%")
             if self.measurementTime <= 0.0 {
                 
                 self.notiGenerator.notificationOccurred(.success)

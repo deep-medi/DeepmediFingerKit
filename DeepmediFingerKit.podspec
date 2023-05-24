@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DeepmediFingerKit'
-  s.version          = '1.1.2'
+  s.version          = '1.1.3'
   s.summary          = 'Framework for measurement after finger tap'
 
 # This description is used to generate tags and improve search results.
@@ -24,7 +24,7 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/deep-medi/DeepmediFingerKit'
   s.license          = { :type => 'BSD', :file => 'LICENSE' }
   s.author           = { 'demianjun' => 'demianjun@gmail.com' }
-  s.source           = { :git => 'https://github.com/deep-medi/DeepmediFingerKit.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/deep-medi/DeepmediFingstaerKit.git', :tag => s.version.to_s }
   s.ios.deployment_target = '13.0'  
   s.source_files = 'DeepmediFingerKit','DeepmediFingerKit/Objc/*.{h,mm}', 'DeepmediFingerKit/Classes/**/*.{h,swift}'
   
