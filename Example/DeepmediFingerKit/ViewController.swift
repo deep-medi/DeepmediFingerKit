@@ -11,25 +11,27 @@ import AVKit
 import SnapKit
 import DeepmediFingerKit
 
+import Alamofire
+
 class ViewController: UIViewController {
     
     var previewLayer = AVCaptureVideoPreviewLayer()
     let session = AVCaptureSession()
     let captureDevice = AVCaptureDevice(uniqueID: "Capture")
-
+    
     let header = Header()
     let camera = CameraObject()
     
     let fingerMeasureKit = FingerMeasurementKit()
     let fingerMeasureKitModel = FingerMeasureKitModel()
-
+    
     let preview = CameraPreview()
     let previousButton = UIButton().then { b in
         b.setTitle("Previous", for: .normal)
         b.setTitleColor(.white, for: .normal)
         b.backgroundColor = .black
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.completionMethod()
@@ -109,31 +111,36 @@ class ViewController: UIViewController {
                                                   uri: "uri",
                                                   secretKey: "secretKey",
                                                   apiKey: "apiKey")
-                self.dismiss(animated: true)
+                DispatchQueue.global(qos: .background).async {
+                    self.fingerMeasureKit.stopSession()
+                }
+            } else {
+                print("error")
             }
+            self.dismiss(animated: true)
         }
     }
     
     func setupUI() {
         self.view.addSubview(preview)
         self.view.addSubview(previousButton)
-
+        
         let width = UIScreen.main.bounds.width * 0.8,
             height = UIScreen.main.bounds.height * 0.8
-
+        
         preview.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(40)
             make.centerX.equalToSuperview()
             make.width.equalTo(width)
             make.height.equalTo(width)
         }
-
+        
         previousButton.snp.makeConstraints { make in
             make.width.height.equalTo(width * 0.3)
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().offset(-80)
         }
-
+        
         previousButton.layer.cornerRadius = (width * 0.3) / 2
         previousButton.addTarget(
             self,
@@ -142,4 +149,3 @@ class ViewController: UIViewController {
         )
     }
 }
-
