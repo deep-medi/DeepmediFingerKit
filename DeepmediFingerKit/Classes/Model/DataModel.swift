@@ -92,7 +92,7 @@ class DataModel {
         b: Float
     ) {
         let timeStamp = (Date().timeIntervalSince1970 * 1000000).rounded()
-        guard timeStamp > 100 else { return print("rgb timeStamp error") }
+        guard timeStamp != 0 else { return print("rgb timeStamp error") }
         let dataFormat = (timeStamp, r, g, b)
         
         self.gTempData.append(g)

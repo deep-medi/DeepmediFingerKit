@@ -239,6 +239,9 @@ open class FingerMeasurementKit: NSObject {
             measurementCompleteRatio = self.measurementModel.measurementCompleteRatio
         
         self.isComplete = true
+        self.dataModel.initRGBData()
+        self.dataModel.initAccData()
+        self.dataModel.initGyroData()
         
         self.measurementTimer = Timer.scheduledTimer(
             withTimeInterval: 0.1,
