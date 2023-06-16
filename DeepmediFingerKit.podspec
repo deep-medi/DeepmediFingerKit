@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DeepmediFingerKit'
-  s.version          = '1.1.4'
+  s.version          = '1.1.5'
   s.summary          = 'Framework for measurement after finger tap'
 
 # This description is used to generate tags and improve search results.
@@ -17,9 +17,9 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+#  s.description      = <<-DESC
+#TODO: Add long description of the pod here.
+#                       DESC
 
   s.homepage         = 'https://github.com/deep-medi/DeepmediFingerKit'
   s.license          = { :type => 'BSD', :file => 'LICENSE' }

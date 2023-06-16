@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (5.2.2)
-  - DeepmediFingerKit (0.2.0):
+  - DeepmediFingerKit (1.1.4):
     - Alamofire (~> 5.2.0)
     - OpenCV
     - RxCocoa (~> 6.0.0)
@@ -36,7 +36,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
-  DeepmediFingerKit: 777aa804032aff0a8b15a7605bd4c0481d8d03bf
+  DeepmediFingerKit: 7fb14e2c32eb2728aef729ea91db48d2d81142e8
   OpenCV: 681e0451c1e54c5930a8922277f817ed5d5ab459
   RxCocoa: 3f79328fafa3645b34600f37c31e64c73ae3a80e
   RxRelay: 8d593be109c06ea850df027351beba614b012ffb
@@ -46,4 +46,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: c7d41d77e43bd6ca3218fb25ef7e299fa80c5ee4
 
-COCOAPODS: 1.12.0
+COCOAPODS: 1.12.1

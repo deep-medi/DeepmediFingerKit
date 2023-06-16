@@ -24,7 +24,7 @@ class CameraSetup: NSObject {
         self.session = session
         self.captureDevice = captureDevice
     }
-
+    
     func useCaptureDevice() -> AVCaptureDevice? {
         return self.captureDevice
     }
@@ -38,6 +38,7 @@ class CameraSetup: NSObject {
         return torch
     }
     
+    @available(iOS 10.0, *)
     func startDetection() {
         self.session.sessionPreset = .low
         
@@ -93,14 +94,21 @@ class CameraSetup: NSObject {
             }
         }
         
-        if try! self.captureDevice?.lockForConfiguration() != nil {
-            try! self.captureDevice?.lockForConfiguration()
-            guard let tempCurrentFormat = currentFormat else { fatalError("current format")}
-            self.captureDevice?.activeFormat = tempCurrentFormat
-            self.captureDevice?.activeVideoMinFrameDuration = CMTimeMake(1, Int32(tempFramePerSec))
-            self.captureDevice?.activeVideoMaxFrameDuration = CMTimeMake(1, Int32(tempFramePerSec))
-            self.captureDevice?.unlockForConfiguration()
-        }
+        guard let tempCurrentFormat = currentFormat,
+              try! self.captureDevice?.lockForConfiguration() != nil else { return print("current format")}
+        
+        try! self.captureDevice?.lockForConfiguration()
+        self.captureDevice?.activeFormat = tempCurrentFormat
+        self.captureDevice?.activeVideoMinFrameDuration = CMTime(
+            value: 1,
+            timescale: Int32(tempFramePerSec)
+        )
+        self.captureDevice?.activeVideoMaxFrameDuration = CMTime(
+            value: 1,
+            timescale: Int32(tempFramePerSec)
+        )
+        self.captureDevice?.unlockForConfiguration()
+        
         if self.captureDevice?.hasTorch ?? false {
             self.correctColor()
         }

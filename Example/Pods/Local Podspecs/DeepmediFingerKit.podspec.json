@@ -1,6 +1,6 @@
 {
   "name": "DeepmediFingerKit",
-  "version": "0.2.0",
+  "version": "1.1.4",
   "summary": "Framework for measurement after finger tap",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/deep-medi/DeepmediFingerKit",
@@ -12,8 +12,8 @@
     "demianjun": "demianjun@gmail.com"
   },
   "source": {
-    "git": "https://github.com/deep-medi/DeepmediFingerKit.git",
-    "tag": "0.2.0"
+    "git": "https://github.com/deep-medi/DeepmediFingstaerKit.git",
+    "tag": "1.1.4"
   },
   "platforms": {
     "ios": "13.0"
