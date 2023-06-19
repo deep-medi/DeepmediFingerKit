@@ -36,12 +36,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.completionMethod()
         
-        self.camera.initalized(
+        self.camera.fingerKitInitalized(
             delegate:fingerMeasureKit,
             session: session,
             captureDevice: captureDevice
         )
-        self.fingerMeasureKitModel.setMeasurementTime(30)
+        self.fingerMeasureKitModel.setFingerMeasurementTime(30)
         self.fingerMeasureKitModel.doMeasurementBreath(true)
         
         self.previewLayer = AVCaptureVideoPreviewLayer(session: self.session)
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         self.setupUI()
         
         DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 1) {
-            self.fingerMeasureKit.startSession()
+            self.fingerMeasureKit.fingerStartSession()
         }
     }
     
@@ -62,12 +62,12 @@ class ViewController: UIViewController {
     }
     
     @objc func prev() {
-        self.fingerMeasureKit.stopSession()
+        self.fingerMeasureKit.fingerStopSession()
         self.dismiss(animated: true)
     }
     
     func completionMethod() {
-        fingerMeasureKit.measuredValue { value in
+        fingerMeasureKit.fingerMeasuredValue { value in
             print("value: \(value)")
         }
         
@@ -79,9 +79,9 @@ class ViewController: UIViewController {
             print("left time: \(time)")
         }
         
-        fingerMeasureKit.stopMeasurement { isStop in
+        fingerMeasureKit.fingerStopMeasurement { isStop in
             if isStop {
-                self.fingerMeasureKit.stopSession()
+                self.fingerMeasureKit.fingerStopSession()
                 let alertVC = UIAlertController(
                     title: "Stop",
                     message: "",
@@ -92,7 +92,7 @@ class ViewController: UIViewController {
                     style: .default
                 ) { _ in
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        self.fingerMeasureKit.startSession()
+                        self.fingerMeasureKit.fingerStartSession()
                     }
                 }
                 alertVC.addAction(action)
@@ -102,7 +102,7 @@ class ViewController: UIViewController {
             }
         }
         
-        fingerMeasureKit.finishedMeasurement { success, rgbPath, accPath, gyroPath in
+        fingerMeasureKit.fingerFinishedMeasurement { success, rgbPath, accPath, gyroPath in
             print("rgbPath:", rgbPath)
             print("accPath:", accPath)
             print("gyroPath:", gyroPath)
@@ -112,7 +112,7 @@ class ViewController: UIViewController {
                                                   secretKey: "secretKey",
                                                   apiKey: "apiKey")
                 DispatchQueue.global(qos: .background).async {
-                    self.fingerMeasureKit.stopSession()
+                    self.fingerMeasureKit.fingerStopSession()
                 }
             } else {
                 print("error")

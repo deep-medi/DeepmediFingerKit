@@ -68,7 +68,7 @@ open class FingerMeasurementKit: NSObject {
             .disposed(by: self.bag)
     }
     ///success: Bool, rgb: URL?, acc: URL?, gyro: URL?
-    public func finishedMeasurement(
+    public func fingerFinishedMeasurement(
         _ isSuccess: @escaping((_ success: Bool,_ rgbPath: URL?,_ accPath: URL?,_ gyroPath: URL?) -> ())
     ) {
         let completion = self.measurementModel.measurementComplete
@@ -83,7 +83,7 @@ open class FingerMeasurementKit: NSObject {
             .disposed(by: bag)
     }
     
-    public func stopMeasurement(
+    public func fingerStopMeasurement(
         _ isStop: @escaping((Bool) -> ())
     ) {
         let stop = self.measurementModel.measurementStop
@@ -96,7 +96,7 @@ open class FingerMeasurementKit: NSObject {
             .disposed(by: bag)
     }
     
-    public func measuredValue(
+    public func fingerMeasuredValue(
         _ filtered: @escaping (Double)->()
     ) {
         let value = self.measurementModel.inputFilteringGvalue
@@ -122,7 +122,7 @@ open class FingerMeasurementKit: NSObject {
         UIApplication.shared.isIdleTimerDisabled = false
     }
     
-    open func startSession() {
+    open func fingerStartSession() {
         DispatchQueue.main.async {
             self.measurementRGBfromFinger()
             self.isComplete = false
@@ -135,7 +135,7 @@ open class FingerMeasurementKit: NSObject {
         }
     }
     
-    open func stopSession() {
+    open func fingerStopSession() {
         self.stopMeasurement()
     }
     

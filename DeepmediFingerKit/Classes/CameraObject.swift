@@ -11,7 +11,7 @@ import AVKit
 public class CameraObject: NSObject {
     let cameraSetup = CameraSetup.manager
     
-    public func initalized(
+    public func fingerKitInitalized(
         delegate: AVCaptureVideoDataOutputSampleBufferDelegate,
         session: AVCaptureSession,
         captureDevice: AVCaptureDevice?
