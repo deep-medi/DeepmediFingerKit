@@ -19,13 +19,13 @@ class ViewController: UIViewController {
     let session = AVCaptureSession()
     let captureDevice = AVCaptureDevice(uniqueID: "Capture")
     
-    let header = Header()
-    let camera = CameraObject()
+    let header = FingerHeader()
+    let camera = FingerCameraObject()
     
     let fingerMeasureKit = FingerMeasurementKit()
     let fingerMeasureKitModel = FingerMeasureKitModel()
     
-    let preview = CameraPreview()
+    let preview = FingerCameraPreview()
     let previousButton = UIButton().then { b in
         b.setTitle("Previous", for: .normal)
         b.setTitleColor(.white, for: .normal)

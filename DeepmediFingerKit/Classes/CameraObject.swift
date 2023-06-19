@@ -8,7 +8,7 @@
 import Foundation
 import AVKit
 
-public class CameraObject: NSObject {
+public class FingerCameraObject: NSObject {
     let cameraSetup = CameraSetup.manager
     
     public func fingerKitInitalized(
