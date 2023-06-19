@@ -42,7 +42,7 @@ open class FingerMeasurementKit: NSObject {
                 isTorch = true,
                 isComplete = Bool()
     
-    public func timesLeft(
+    public func fingerTimesLeft(
         _ time: @escaping (Int)->()
     ) {
         let secondRemaining = self.measurementModel.secondRemaining
