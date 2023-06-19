@@ -15,6 +15,7 @@
 			dependencies = (
 			);
 			name = OpenCV;
+			productName = OpenCV;
 		};
 /* End PBXAggregateTarget section */
 
@@ -698,7 +699,7 @@
 		466677BF16727DB353A23CD5F5BDE4C7 /* background_segm.hpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = background_segm.hpp; path = opencv2.framework/Versions/A/Headers/video/background_segm.hpp; sourceTree = "<group>"; };
 		46825D2C8A0BEC4D6F6555383350A538 /* ConstraintView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintView.swift; path = Source/ConstraintView.swift; sourceTree = "<group>"; };
 		46EFBC1CCE066BD85CE1B629660A136D /* ConstraintLayoutGuide.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuide.swift; path = Source/ConstraintLayoutGuide.swift; sourceTree = "<group>"; };
-		478F79ED4988F66934E83E4875057D75 /* OpenCVWrapper.mm */ = {isa = PBXFileReference; includeInIndex = 1; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
+		478F79ED4988F66934E83E4875057D75 /* OpenCVWrapper.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
 		47F3D2E26CCDEC434C72E35D46B43105 /* constants_c.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = constants_c.h; path = opencv2.framework/Versions/A/Headers/photo/legacy/constants_c.h; sourceTree = "<group>"; };
 		482E97781B0BDAE3380B3CB1471BB353 /* constants_c.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = constants_c.h; path = opencv2.framework/Versions/A/Headers/videoio/legacy/constants_c.h; sourceTree = "<group>"; };
 		485CF095CCA9E9047034BE4D95F960D2 /* vsx_utils.hpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = vsx_utils.hpp; path = opencv2.framework/Versions/A/Headers/core/vsx_utils.hpp; sourceTree = "<group>"; };
@@ -833,7 +834,7 @@
 		74CEFC22F4AA266D243B420A2C11CC13 /* gproto.hpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = gproto.hpp; path = opencv2.framework/Versions/A/Headers/gapi/gproto.hpp; sourceTree = "<group>"; };
 		7514F027C863FA2DF5ABB9CDE70D4DFA /* transform.hpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = transform.hpp; path = opencv2.framework/Versions/A/Headers/core/cuda/transform.hpp; sourceTree = "<group>"; };
 		75A3E8EC819C34436ED26DA7EF294D3A /* StartWith.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StartWith.swift; path = RxSwift/Observables/StartWith.swift; sourceTree = "<group>"; };
-		75C0B4661524CA8D28549D5458718B78 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		75C0B4661524CA8D28549D5458718B78 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		7649D4348C8EB7B3B9AF477F6BDFFA12 /* SwiftSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftSupport.swift; path = RxSwift/SwiftSupport/SwiftSupport.swift; sourceTree = "<group>"; };
 		76902B9032830A2306E51513F03B5D64 /* RxTableViewDataSourceType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxTableViewDataSourceType.swift; path = RxCocoa/iOS/Protocols/RxTableViewDataSourceType.swift; sourceTree = "<group>"; };
 		76E26D35DD2F0305C3F31156D482D997 /* Bag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Bag.swift; path = Platform/DataStructures/Bag.swift; sourceTree = "<group>"; };
@@ -865,7 +866,7 @@
 		81567572225413AA0A40871CB2D172BA /* PublishRelay+Signal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "PublishRelay+Signal.swift"; path = "RxCocoa/Traits/Signal/PublishRelay+Signal.swift"; sourceTree = "<group>"; };
 		8228CA80DFB400146FF65F6E57445AD6 /* utility.hpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = utility.hpp; path = opencv2.framework/Versions/A/Headers/core/utility.hpp; sourceTree = "<group>"; };
 		8234B63627FCB96E7B3DE305523789F8 /* Repeat.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Repeat.swift; path = RxSwift/Observables/Repeat.swift; sourceTree = "<group>"; };
-		826C7B5655C0FEC7850B2F4E2F0131F7 /* ObjcMapper.mm */ = {isa = PBXFileReference; includeInIndex = 1; path = ObjcMapper.mm; sourceTree = "<group>"; };
+		826C7B5655C0FEC7850B2F4E2F0131F7 /* ObjcMapper.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; path = ObjcMapper.mm; sourceTree = "<group>"; };
 		82B9045C064F8DAF5BB108FF66582A8B /* type_traits.hpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = type_traits.hpp; path = opencv2.framework/Versions/A/Headers/core/cuda/type_traits.hpp; sourceTree = "<group>"; };
 		834324D1EE998E3EB8396F8F4167D92E /* gcompiled.hpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = gcompiled.hpp; path = opencv2.framework/Versions/A/Headers/gapi/gcompiled.hpp; sourceTree = "<group>"; };
 		835428995DA5CB20E0E3CF8F9609EB0D /* ObservableType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ObservableType.swift; path = RxSwift/ObservableType.swift; sourceTree = "<group>"; };
@@ -945,7 +946,7 @@
 		9C901607F4FA2082AC13F2657A805C12 /* UISearchBar+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UISearchBar+Rx.swift"; path = "RxCocoa/iOS/UISearchBar+Rx.swift"; sourceTree = "<group>"; };
 		9CB25B5AC54FE7262E19B312A378842B /* Infallible+CombineLatest+arity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Infallible+CombineLatest+arity.swift"; path = "RxSwift/Traits/Infallible/Infallible+CombineLatest+arity.swift"; sourceTree = "<group>"; };
 		9D6A553C0B4668111C2EC0999F263816 /* RxSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RxSwift-umbrella.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DB551B14BDDA8F8122003CD218AA0CE /* cvdef.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = cvdef.h; path = opencv2.framework/Versions/A/Headers/core/cvdef.h; sourceTree = "<group>"; };
 		9DFB392D7641F4C2D466DECA415615AE /* UIScrollView+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIScrollView+Rx.swift"; path = "RxCocoa/iOS/UIScrollView+Rx.swift"; sourceTree = "<group>"; };
 		9E3F03F0906D69F1DB39FC0747669933 /* PublishRelay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PublishRelay.swift; path = RxRelay/PublishRelay.swift; sourceTree = "<group>"; };
@@ -978,7 +979,7 @@
 		A76942793FE00E3D66C595589848F866 /* ocl.hpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = ocl.hpp; path = opencv2.framework/Versions/A/Headers/core/ocl.hpp; sourceTree = "<group>"; };
 		A8654990A253DDD36D16D421C2522A01 /* base.hpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = base.hpp; path = opencv2.framework/Versions/A/Headers/core/base.hpp; sourceTree = "<group>"; };
 		A89F84CCCDFC941C3B72CCFE8EBC8711 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
-		A90FE70DB07FBE47CB8DC82C82A77A18 /* DeepmediFingerKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = DeepmediFingerKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A90FE70DB07FBE47CB8DC82C82A77A18 /* DeepmediFingerKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = DeepmediFingerKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A9B13D44521CEA53F8B37355EE051B09 /* CachedResponseHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CachedResponseHandler.swift; path = Source/CachedResponseHandler.swift; sourceTree = "<group>"; };
 		A9F020F8ED2C3701DD7E8FF81705C42B /* gmetaarg.hpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = gmetaarg.hpp; path = opencv2.framework/Versions/A/Headers/gapi/gmetaarg.hpp; sourceTree = "<group>"; };
 		AA104DFD63F410F09C6A9818D01967F7 /* UISlider+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UISlider+Rx.swift"; path = "RxCocoa/iOS/UISlider+Rx.swift"; sourceTree = "<group>"; };
@@ -1059,7 +1060,7 @@
 		C18FABB59FD4BC8F2E9CB5CCE02F1E99 /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
 		C1C1429766170B88635ABF636745FFA3 /* datamov_utils.hpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = datamov_utils.hpp; path = opencv2.framework/Versions/A/Headers/core/cuda/datamov_utils.hpp; sourceTree = "<group>"; };
 		C28A23537B47867690B8ED72CD5E897B /* NSTextField+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSTextField+Rx.swift"; path = "RxCocoa/macOS/NSTextField+Rx.swift"; sourceTree = "<group>"; };
-		C38F5C9A08C368A6DE6CE829562D4360 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		C38F5C9A08C368A6DE6CE829562D4360 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C44DCA6E961B060601EBD877D9C77ED0 /* RxSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RxSwift.release.xcconfig; sourceTree = "<group>"; };
 		C68C73A82546BE568B1B988B15E4DEFC /* SchedulerServices+Emulation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SchedulerServices+Emulation.swift"; path = "RxSwift/Schedulers/SchedulerServices+Emulation.swift"; sourceTree = "<group>"; };
 		C6F30B918BCFE2C7A7155F3ED6397F6B /* AnonymousObserver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnonymousObserver.swift; path = RxSwift/Observers/AnonymousObserver.swift; sourceTree = "<group>"; };
@@ -1416,7 +1417,6 @@
 				69B2163826B2736BEBC16166C03A28B3 /* WKWebView+Rx.swift */,
 				DBE315F4750B3B25BB349D9C56824776 /* Support Files */,
 			);
-			name = RxCocoa;
 			path = RxCocoa;
 			sourceTree = "<group>";
 		};
@@ -1479,7 +1479,6 @@
 				0F3032A72E79D3327E347B291C38B904 /* Then.swift */,
 				41D4F6F2800CCCDB80EAD7A90B538023 /* Support Files */,
 			);
-			name = Then;
 			path = Then;
 			sourceTree = "<group>";
 		};
@@ -1531,7 +1530,6 @@
 				BC2D6D4139C4050EAABB2FD2D9183ACA /* Utils.swift */,
 				31DC2B3624E3362E35CB53BBCD4F70B9 /* Support Files */,
 			);
-			name = RxRelay;
 			path = RxRelay;
 			sourceTree = "<group>";
 		};
@@ -1841,7 +1839,6 @@
 				C1B7AF8856E026C797E6B67F1CBF0FFA /* Frameworks */,
 				5155C0931122B102527D95CA6C0499D2 /* Support Files */,
 			);
-			name = OpenCV;
 			path = OpenCV;
 			sourceTree = "<group>";
 		};
@@ -1875,9 +1872,9 @@
 			isa = PBXGroup;
 			children = (
 				7BB06A44229D132780E9A2E2E3C63DDC /* CameraObject.swift */,
-				6000335AE53768772B073EFDF8BED498 /* Extension.swift */,
 				D930708A23E8B435EE09D18729B683AD /* FingerMeasureKit.swift */,
 				34F100FBBAE488580C61E7B557592245 /* FingerMeasureKitModel.swift */,
+				6000335AE53768772B073EFDF8BED498 /* Extension.swift */,
 				F855D1FA3FC4E5136F1C18C55D5923E4 /* Camera */,
 				C2D6DED5BEB2DA38DA5E40B00BA20DBA /* Document */,
 				CA7EBAC71D058B7E72125DE15372CE5D /* Header */,
@@ -1928,7 +1925,6 @@
 				9C8A8011FF04A6DAA04F6CBE4EB08959 /* UILayoutSupport+Extensions.swift */,
 				C92A563A4FBF492CF2C31BB3463E3363 /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -1965,7 +1961,6 @@
 			children = (
 				9168DDADA02D9D5E4BC19C0C7B4E791A /* Document.swift */,
 			);
-			name = Document;
 			path = Document;
 			sourceTree = "<group>";
 		};
@@ -1997,7 +1992,6 @@
 			children = (
 				5D180A6E5341915C76C609E73F8FDDA2 /* Header.swift */,
 			);
-			name = Header;
 			path = Header;
 			sourceTree = "<group>";
 		};
@@ -2175,7 +2169,6 @@
 				9F1D25380A49C7A483141C64B7109E66 /* Zip+Collection.swift */,
 				D55288082190C9099E072D7A14802430 /* Support Files */,
 			);
-			name = RxSwift;
 			path = RxSwift;
 			sourceTree = "<group>";
 		};
@@ -2233,7 +2226,6 @@
 				D6CE0CDE894C4C42826D99D8B0FB914A /* Validation.swift */,
 				7F3A546552C4B0B31A63650A8F505D75 /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -2265,7 +2257,6 @@
 				BE298296841223E5BEB02A17ECA6B961 /* MeasurementModel.swift */,
 				B74E80F1C53FDE6408F44EAA68D7F6A6 /* Model.swift */,
 			);
-			name = Model;
 			path = Model;
 			sourceTree = "<group>";
 		};
@@ -2275,7 +2266,6 @@
 				024C3AD15B4BD7B6F6D9B6F50480EB7C /* CameraPreview.swift */,
 				6171368ED335A791BAF3FE66CFAFF930 /* CameraSetup.swift */,
 			);
-			name = Camera;
 			path = Camera;
 			sourceTree = "<group>";
 		};
@@ -3694,8 +3684,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

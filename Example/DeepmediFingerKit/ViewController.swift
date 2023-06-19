@@ -75,7 +75,7 @@ class ViewController: UIViewController {
             print("complete ratio: \(ratio)")
         }
         
-        fingerMeasureKit.timesLeft { time in
+        fingerMeasureKit.fingerTimesLeft { time in
             print("left time: \(time)")
         }
         
