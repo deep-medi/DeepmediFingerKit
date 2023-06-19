@@ -55,7 +55,7 @@ open class FingerMeasurementKit: NSObject {
             .disposed(by: bag)
     }
     
-    public func measurementCompleteRatio(
+    public func fingerMeasurementCompleteRatio(
         _ com: @escaping((String) -> ())
     ) {
         let ratio = self.measurementModel.measurementCompleteRatio

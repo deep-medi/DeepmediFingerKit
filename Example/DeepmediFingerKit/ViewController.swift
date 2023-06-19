@@ -71,7 +71,7 @@ class ViewController: UIViewController {
             print("value: \(value)")
         }
         
-        fingerMeasureKit.measurementCompleteRatio { ratio in
+        fingerMeasureKit.fingerMeasurementCompleteRatio { ratio in
             print("complete ratio: \(ratio)")
         }
         
