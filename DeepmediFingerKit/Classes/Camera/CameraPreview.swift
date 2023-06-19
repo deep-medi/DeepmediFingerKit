@@ -8,7 +8,7 @@
 import Foundation
 import AVKit
 
-public class FingerCameraPreview: UIView {
+public class CameraPreview: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
