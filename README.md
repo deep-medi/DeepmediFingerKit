@@ -26,4 +26,4 @@ demianjun@gmail.com, demianjun@gmail.com
 
 ## License
 
-DeepmediFingerKit is available under the MIT license. See the LICENSE file for more info.
+DeepmediFingerKit is available under the BSD license. See the LICENSE file for more info.
