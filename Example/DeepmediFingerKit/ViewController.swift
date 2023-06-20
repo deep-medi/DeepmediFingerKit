@@ -11,8 +11,6 @@ import AVKit
 import SnapKit
 import DeepmediFingerKit
 
-import Alamofire
-
 class ViewController: UIViewController {
     
     var previewLayer = AVCaptureVideoPreviewLayer()
