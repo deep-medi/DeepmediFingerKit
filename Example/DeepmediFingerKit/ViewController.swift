@@ -11,21 +11,19 @@ import AVKit
 import SnapKit
 import DeepmediFingerKit
 
-import Alamofire
-
 class ViewController: UIViewController {
     
     var previewLayer = AVCaptureVideoPreviewLayer()
     let session = AVCaptureSession()
     let captureDevice = AVCaptureDevice(uniqueID: "Capture")
     
-    let header = FingerHeader()
-    let camera = FingerCameraObject()
+    let header = Header()
+    let camera = CameraObject()
     
     let fingerMeasureKit = FingerMeasurementKit()
     let fingerMeasureKitModel = FingerMeasureKitModel()
     
-    let preview = FingerCameraPreview()
+    let preview = CameraPreview()
     let previousButton = UIButton().then { b in
         b.setTitle("Previous", for: .normal)
         b.setTitleColor(.white, for: .normal)
@@ -36,12 +34,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.completionMethod()
         
-        self.camera.fingerKitInitalized(
+        self.camera.initalized(
             delegate:fingerMeasureKit,
             session: session,
             captureDevice: captureDevice
         )
-        self.fingerMeasureKitModel.setFingerMeasurementTime(30)
+        self.fingerMeasureKitModel.setMeasurementTime(30)
         self.fingerMeasureKitModel.doMeasurementBreath(true)
         
         self.previewLayer = AVCaptureVideoPreviewLayer(session: self.session)
@@ -49,7 +47,7 @@ class ViewController: UIViewController {
         self.setupUI()
         
         DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 1) {
-            self.fingerMeasureKit.fingerStartSession()
+            self.fingerMeasureKit.startSession()
         }
     }
     
@@ -62,26 +60,26 @@ class ViewController: UIViewController {
     }
     
     @objc func prev() {
-        self.fingerMeasureKit.fingerStopSession()
+        self.fingerMeasureKit.stopSession()
         self.dismiss(animated: true)
     }
     
     func completionMethod() {
-        fingerMeasureKit.fingerMeasuredValue { value in
+        fingerMeasureKit.measuredValue { value in
             print("value: \(value)")
         }
         
-        fingerMeasureKit.fingerMeasurementCompleteRatio { ratio in
+        fingerMeasureKit.measurementCompleteRatio { ratio in
             print("complete ratio: \(ratio)")
         }
         
-        fingerMeasureKit.fingerTimesLeft { time in
+        fingerMeasureKit.timesLeft { time in
             print("left time: \(time)")
         }
         
-        fingerMeasureKit.fingerStopMeasurement { isStop in
+        fingerMeasureKit.stopMeasurement { isStop in
             if isStop {
-                self.fingerMeasureKit.fingerStopSession()
+                self.fingerMeasureKit.stopSession()
                 let alertVC = UIAlertController(
                     title: "Stop",
                     message: "",
@@ -92,7 +90,7 @@ class ViewController: UIViewController {
                     style: .default
                 ) { _ in
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        self.fingerMeasureKit.fingerStartSession()
+                        self.fingerMeasureKit.startSession()
                     }
                 }
                 alertVC.addAction(action)
@@ -102,7 +100,7 @@ class ViewController: UIViewController {
             }
         }
         
-        fingerMeasureKit.fingerFinishedMeasurement { success, rgbPath, accPath, gyroPath in
+        fingerMeasureKit.finishedMeasurement { success, rgbPath, accPath, gyroPath in
             print("rgbPath:", rgbPath)
             print("accPath:", accPath)
             print("gyroPath:", gyroPath)
@@ -112,7 +110,7 @@ class ViewController: UIViewController {
                                                   secretKey: "secretKey",
                                                   apiKey: "apiKey")
                 DispatchQueue.global(qos: .background).async {
-                    self.fingerMeasureKit.fingerStopSession()
+                    self.fingerMeasureKit.stopSession()
                 }
             } else {
                 print("error")

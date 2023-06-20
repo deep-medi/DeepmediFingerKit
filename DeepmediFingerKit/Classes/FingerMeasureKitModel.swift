@@ -10,7 +10,7 @@ import UIKit
 public class FingerMeasureKitModel: NSObject {
     let model = Model.shared
 
-    public func setFingerMeasurementTime(
+    public func setMeasurementTime(
         _ time: Double?
     ) {
         self.model.measurementTime = time ?? 30.0

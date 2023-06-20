@@ -42,7 +42,7 @@ open class FingerMeasurementKit: NSObject {
                 isTorch = true,
                 isComplete = Bool()
     
-    public func fingerTimesLeft(
+    public func timesLeft(
         _ time: @escaping (Int)->()
     ) {
         let secondRemaining = self.measurementModel.secondRemaining
@@ -55,7 +55,7 @@ open class FingerMeasurementKit: NSObject {
             .disposed(by: bag)
     }
     
-    public func fingerMeasurementCompleteRatio(
+    public func measurementCompleteRatio(
         _ com: @escaping((String) -> ())
     ) {
         let ratio = self.measurementModel.measurementCompleteRatio
@@ -68,7 +68,7 @@ open class FingerMeasurementKit: NSObject {
             .disposed(by: self.bag)
     }
     ///success: Bool, rgb: URL?, acc: URL?, gyro: URL?
-    public func fingerFinishedMeasurement(
+    public func finishedMeasurement(
         _ isSuccess: @escaping((_ success: Bool,_ rgbPath: URL?,_ accPath: URL?,_ gyroPath: URL?) -> ())
     ) {
         let completion = self.measurementModel.measurementComplete
@@ -83,7 +83,7 @@ open class FingerMeasurementKit: NSObject {
             .disposed(by: bag)
     }
     
-    public func fingerStopMeasurement(
+    public func stopMeasurement(
         _ isStop: @escaping((Bool) -> ())
     ) {
         let stop = self.measurementModel.measurementStop
@@ -96,7 +96,7 @@ open class FingerMeasurementKit: NSObject {
             .disposed(by: bag)
     }
     
-    public func fingerMeasuredValue(
+    public func measuredValue(
         _ filtered: @escaping (Double)->()
     ) {
         let value = self.measurementModel.inputFilteringGvalue
@@ -122,7 +122,7 @@ open class FingerMeasurementKit: NSObject {
         UIApplication.shared.isIdleTimerDisabled = false
     }
     
-    open func fingerStartSession() {
+    open func startSession() {
         DispatchQueue.main.async {
             self.measurementRGBfromFinger()
             self.isComplete = false
@@ -135,7 +135,7 @@ open class FingerMeasurementKit: NSObject {
         }
     }
     
-    open func fingerStopSession() {
+    open func stopSession() {
         self.stopMeasurement()
     }
     

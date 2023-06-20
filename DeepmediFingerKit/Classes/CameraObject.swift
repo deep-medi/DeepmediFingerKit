@@ -8,10 +8,10 @@
 import Foundation
 import AVKit
 
-public class FingerCameraObject: NSObject {
+public class CameraObject: NSObject {
     let cameraSetup = CameraSetup.manager
     
-    public func fingerKitInitalized(
+    public func initalized(
         delegate: AVCaptureVideoDataOutputSampleBufferDelegate,
         session: AVCaptureSession,
         captureDevice: AVCaptureDevice?
