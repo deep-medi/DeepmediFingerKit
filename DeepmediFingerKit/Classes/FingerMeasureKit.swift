@@ -26,9 +26,9 @@ open class FingerMeasurementKit: NSObject {
     private let device = UIDevice.current
     
     // MARK: property
-    private var tapCount = [MeasurementModel.status](),
-                noTapCount = [MeasurementModel.status](),
-                stopMeasureCount = [MeasurementModel.status]()
+    private var tap = [MeasurementModel.status](),
+                noTap = [MeasurementModel.status](),
+                stopMeasureStatus = [MeasurementModel.status]()
     
     private var FRAMES_PER_SECOND: Double = 60,
                 measurementTime = Double(),
@@ -38,12 +38,10 @@ open class FingerMeasurementKit: NSObject {
     
     // MARK: isTapCheck
     private var filterG = [Float]()
-    private let limitTapCount = 60
+    private let standardTapCount = 60
     
     // MARK: Flag
-    private var isDeviceBack = false,
-                isTorch = true,
-                isComplete = Bool()
+    private var isComplete = Bool()
     
     public func timesLeft(
         _ time: @escaping (Int)->()
@@ -127,6 +125,8 @@ open class FingerMeasurementKit: NSObject {
         if let openCVstr = OpenCVWrapper.openCVVersionString() {
             print("\(openCVstr)")
         }
+        self.measurementRGBfromFinger()
+        self.measurementModel.bindFingerTap()
     }
     
     deinit {
@@ -135,37 +135,40 @@ open class FingerMeasurementKit: NSObject {
     }
     
     open func startSession() {
-        self.measurementRGBfromFinger()
+//        self.measurementRGBfromFinger()
         self.startMeasurement()
         self.prepareMeasurement()
     }
     
-    open func stopSession() {
-        self.stopMeasurement(torch: false)
-    }
-    
     open func startMeasurement() {
         self.isComplete = false
-        self.accTimerAndCollectAccelemeterData()
-        self.gyroTimerAndCollectGyroscopeData()
+        self.accelemeterUpdates()
+        self.gyroscopeUpdates()
+        self.deviceMotionUpdates()
     }
     
     private func prepareMeasurement() {
         DispatchQueue.global(qos: .background).async {
+            //            self.measurementModel.bindFingerTap()
             self.measurementTime = self.model.measurementTime
-            self.measurementModel.bindFingerTap()
             self.cameraSetup.useSession().startRunning()
             self.turnOnThe(torch: true)
         }
     }
     
-    private func stopMeasurement(torch: Bool) {
+    
+    open func stopSession() {
+        self.stopMeasurement()
+    }
+    
+    private func stopMeasurement() {
         self.isComplete = true
         self.cameraSetup.useCaptureDevice().exposureMode = .autoExpose
         self.cameraSetup.useSession().stopRunning()
         self.motionManager.stopAccelerometerUpdates()
         self.motionManager.stopGyroUpdates()
-        self.turnOnThe(torch: torch)
+        self.motionManager.stopDeviceMotionUpdates()
+        self.turnOnThe(torch: false)
         self.elementInitalize()
     }
     
@@ -176,9 +179,9 @@ open class FingerMeasurementKit: NSObject {
         self.dataModel.initRGBData()
         self.dataModel.initAccData()
         self.dataModel.initGyroData()
-        self.tapCount.removeAll()
-        self.noTapCount.removeAll()
-        self.stopMeasureCount.removeAll()
+        self.tap.removeAll()
+        self.noTap.removeAll()
+        self.stopMeasureStatus.removeAll()
     }
     
     private func turnOnThe(
@@ -198,33 +201,54 @@ open class FingerMeasurementKit: NSObject {
     }
     
     /// Accelemeter start
-    private func accTimerAndCollectAccelemeterData() {
-        self.motionManager.accelerometerUpdateInterval = 1 / 100
-        guard let operationQueue = OperationQueue.current else {
-            print("acc operation queue return")
-            return
-        }
-        self.motionManager.startAccelerometerUpdates(to: operationQueue) { (acc, err)  in
-            let z = self.dataModel.collectAccelemeterData(acc, err)
-            self.measurementModel.inputAccZback.onNext(z > 0.0)
-            self.measurementModel.inputAccZforward.onNext(z <= 0.0)
-            guard self.isDeviceBack else {
+    private func accelemeterUpdates() {
+        if self.motionManager.isAccelerometerActive {
+            self.motionManager.accelerometerUpdateInterval = 1 / 100
+            guard let operationQueue = OperationQueue.current else {
+                print("acc operation queue return")
                 return
             }
-            self.isDeviceBack = z <= 0.0 ? false : true
-            self.turnOnThe(torch: !self.isDeviceBack)
+            self.motionManager.startAccelerometerUpdates(to: operationQueue) { (acc, err)  in
+                self.dataModel.collectAccelemeterData(acc, err)
+            }
+        }
+    }
+
+    /// Gyroscope start
+    private func gyroscopeUpdates() {
+        if self.motionManager.isGyroAvailable {
+            self.motionManager.gyroUpdateInterval = 1 / 100
+            guard let operationQueue = OperationQueue.current else {
+                print("gyro operation queue return")
+                return
+            }
+            self.motionManager.startGyroUpdates(to: operationQueue) { (gyro, err)  in
+                self.dataModel.collectGyroscopeData(gyro, err)
+            }
         }
     }
     
-    /// Gyroscope start
-    private func gyroTimerAndCollectGyroscopeData() {
-        self.motionManager.gyroUpdateInterval = 1 / 100
-        guard let operationQueue = OperationQueue.current else {
-            print("gyro operation queue return")
-            return
-        }
-        self.motionManager.startGyroUpdates(to: operationQueue) { (gyro, err)  in
-            self.dataModel.collectGyroscopeData(gyro, err)
+    func deviceMotionUpdates() {
+        if self.motionManager.isDeviceMotionAvailable {
+            self.motionManager.deviceMotionUpdateInterval = 0.1  // 업데이트 간격 설정
+            guard let operationQueue = OperationQueue.current else {
+                print("gyro operation queue return")
+                return
+            }
+            self.motionManager.startDeviceMotionUpdates(to: operationQueue) { (motion, error) in
+                guard let motion = motion else {
+                    print("motion return")
+                    return
+                }
+                
+                let attitude = motion.attitude,
+                    roll = attitude.roll,
+                    back = roll < -2.0 || roll > 2.0,
+                    forward = !back
+                
+                self.measurementModel.inputAccZback.onNext(back)
+                self.measurementModel.inputAccZforward.onNext(forward)
+            }
         }
     }
     
@@ -235,46 +259,39 @@ open class FingerMeasurementKit: NSObject {
             .asDriver(onErrorJustReturn: .noTap)
             .drive(onNext: { [weak self] status in
                 guard let self = self else { return }
-                
-                if status == .tap && (self.tapCount.count <= self.limitTapCount * 3) {
-                    
-                    self.tapCount.append(.tap)
-                    self.noTapCount.removeAll()
-                    self.stopMeasureCount.removeAll()
-                    
-                    guard self.tapCount.count == 30 && !self.isComplete else {
-                        return
-                    }
+                self.measurementModel.checkStopStatus(status)
+                if status == .tap && (self.tap.count <= self.standardTapCount * 12) {
+                    if self.tap.count == 30 && !self.isComplete {
                         self.chartUpdateTimer()
                         self.cameraSetup.setUpCatureDevice()
-                                        
+                    }
+                    
+                    self.tap.append(.tap)
+                    self.noTap.removeAll()
+                    self.stopMeasureStatus.removeAll()
+                    
                 } else if (status == .noTap) {
-
-                    self.noTapCount.append(.noTap)
-                    self.tapCount.removeAll()
-                    self.stopMeasureCount.removeAll()
-
+                    self.noTap.append(.noTap)
                 } else if (status == .back || status == .flip) {
-
-                    self.stopMeasureCount.append(status)
-                    self.tapCount.removeAll()
-                    self.noTapCount.removeAll()
+                    self.stopMeasureStatus.append(status)
                 }
-                self.measurementModel.checkStopStatus(status)
+                
                 switch status {
                 case .tap:
                     defer {
-                        if self.tapCount.count == (self.limitTapCount * self.model.limitTapTime) {
+                        if self.tap.count == (self.standardTapCount * self.model.limitTapTime / 2) {
                             self.startTimer()
                         }
                     }
-                    guard (self.tapCount.count < self.limitTapCount / 2) && !self.isComplete else {
+                    guard (self.tap.count < self.standardTapCount / 2) && !self.isComplete else {
                         return
                     }
+                    self.noTap.removeAll()
+                    self.stopMeasureStatus.removeAll()
                     self.measurementModel.measurementStop.onNext(false)
 
                 case .noTap:
-                    guard self.tapCount.count >= 180 && (self.noTapCount.count == self.limitTapCount * self.model.limitNoTapTime) else {
+                    guard self.tap.count >= 30 && (self.noTap.count == self.standardTapCount * self.model.limitNoTapTime / 2) else {
 //                        print("no tap return")
                         return
                     }
@@ -282,11 +299,10 @@ open class FingerMeasurementKit: NSObject {
                     self.measurementModel.measurementStop.onNext(true)
 
                 case .back, .flip:
-                    guard self.stopMeasureCount.count >= 30 else {
+                    guard self.stopMeasureStatus.count >= 30 else {
 //                        print("back, flip return")
                         return
                     }
-                    self.isDeviceBack = true
                     self.turnOnThe(torch: false)
                     self.elementInitalize()
                     self.measurementModel.measurementStop.onNext(true)
@@ -352,7 +368,7 @@ open class FingerMeasurementKit: NSObject {
                                            gyroURL: URL(string: "there is not gyro path")))
                     }
                 }
-                self.stopMeasurement(torch: false)
+                self.stopMeasurement()
             }
         }
     }

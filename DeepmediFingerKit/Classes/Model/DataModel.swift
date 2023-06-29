@@ -105,14 +105,14 @@ class DataModel {
     func collectAccelemeterData(
         _ acc: CMAccelerometerData?,
         _ err: Error?
-    ) -> Float {
+    ) {
         if err != nil {
             print("error")
-            return Float()
+            return
         } else {
             guard let accMeasureData = acc?.acceleration else {
                 print("accelerometer measured data return")
-                return Float()
+                return
             }
             var x: Float = 0, y: Float = 0, z: Float = 0
             x = Float(accMeasureData.x)
@@ -120,15 +120,13 @@ class DataModel {
             z = Float(accMeasureData.z)
             
             let timeStamp = (Date().timeIntervalSince1970 * 1000000).rounded()
-            guard timeStamp > 100 else { return z }
+            guard timeStamp > 100 else { return }
             let dataFormat = (timeStamp, x, y, z)
             
             self.accXdata.append(x)
             self.accYdata.append(y)
             self.accZdata.append(z)
             self.accData.append(dataFormat)
-            
-            return z
         }
     }
     
