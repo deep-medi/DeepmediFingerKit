@@ -84,19 +84,22 @@ class ViewController: UIViewController {
             }
             print("stop status : ",status)
             self.fingerMeasureKit.stopSession()
-            let alertVC = UIAlertController(
-                title: "Stopped by \(status)",
-                message: "",
-                preferredStyle: .alert
-            )
-            let action = UIAlertAction(
-                title: "ok",
-                style: .default
-            ) { _ in
+            if !self.session.isRunning {
                 self.fingerMeasureKit.startSession()
             }
-            alertVC.addAction(action)
-            self.present(alertVC, animated: false)
+//            let alertVC = UIAlertController(
+//                title: "Stopped by \(status)",
+//                message: "",
+//                preferredStyle: .alert
+//            )
+//            let action = UIAlertAction(
+//                title: "ok",
+//                style: .default
+//            ) { _ in
+//                self.fingerMeasureKit.startSession()
+//            }
+//            alertVC.addAction(action)
+//            self.present(alertVC, animated: false)
         }
         
         fingerMeasureKit.finishedMeasurement { success, rgbPath, accPath, gyroPath in
@@ -109,9 +112,7 @@ class ViewController: UIViewController {
                                                   secretKey: "secretKey",
                                                   apiKey: "apiKey")
                 print("header", header)
-                DispatchQueue.global(qos: .background).async {
-                    self.fingerMeasureKit.stopSession()
-                }
+                self.fingerMeasureKit.stopSession()
             } else {
                 print("finished measurement error")
             }

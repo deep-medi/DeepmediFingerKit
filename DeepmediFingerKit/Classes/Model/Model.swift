@@ -17,7 +17,7 @@ class Model {
     
     init() {
         self.limitTapTime = 3
-        self.limitNoTapTime = 5
+        self.limitNoTapTime = 3
         self.measurementTime = 30.0
         self.breathMeasurement = true
     }
