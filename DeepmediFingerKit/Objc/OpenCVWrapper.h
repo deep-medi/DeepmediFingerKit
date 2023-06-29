@@ -12,6 +12,6 @@
 @interface OpenCVWrapper : NSObject
 
 + (NSString *)openCVVersionString;
-+ (NSArray *)preccessbuffer:(CMSampleBufferRef)sampleBuffer hasTorch:(BOOL)isTorch device: (NSString *)device;
++ (NSArray *)preccessbuffer:(CMSampleBufferRef)sampleBuffer device: (NSString *)device;
 
 @end

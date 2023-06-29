@@ -8,6 +8,10 @@ import RxCocoa
 import Then
 
 open class FingerMeasurementKit: NSObject {
+    public enum StopStatus: String {
+        case noTap, flipDevice, notThing
+    }
+    
     private let bag = DisposeBag()
     
     private let document = Document(),
@@ -37,8 +41,7 @@ open class FingerMeasurementKit: NSObject {
     private let limitTapCount = 60
     
     // MARK: Flag
-    private var isDeviceBack = Bool(),
-                isTap = Bool(),
+    private var isDeviceBack = false,
                 isTorch = true,
                 isComplete = Bool()
     
@@ -96,6 +99,15 @@ open class FingerMeasurementKit: NSObject {
             .disposed(by: bag)
     }
     
+    public func stoppedStatus() -> StopStatus {
+        if self.measurementModel.stoppedByNotTap {
+            return FingerMeasurementKit.StopStatus.noTap
+        } else if self.measurementModel.stoppedByFlipingDevice {
+            return FingerMeasurementKit.StopStatus.flipDevice
+        }
+        return FingerMeasurementKit.StopStatus.notThing
+    }
+    
     public func measuredValue(
         _ filtered: @escaping (Double)->()
     ) {
@@ -123,52 +135,95 @@ open class FingerMeasurementKit: NSObject {
     }
     
     open func startSession() {
-        DispatchQueue.main.async {
-            self.measurementRGBfromFinger()
-            self.isComplete = false
-            self.measurementModel.bindFingerTap()
-            self.measurementTime = self.model.measurementTime
-            self.cameraSetup.useSession().startRunning()
-            self.accTimerAndCollectAccelemeterData()
-            self.gyroTimerAndCollectGyroscopeData()
-            self.setTorch(camSetup: self.cameraSetup, torch: true)
-        }
+        self.measurementRGBfromFinger()
+        self.startMeasurement()
+        self.prepareMeasurement()
     }
     
     open func stopSession() {
-        self.stopMeasurement()
+        self.stopMeasurement(torch: false)
     }
     
-    private func setTorch(
-        camSetup: CameraSetup,
+    open func startMeasurement() {
+        self.isComplete = false
+        self.accTimerAndCollectAccelemeterData()
+        self.gyroTimerAndCollectGyroscopeData()
+    }
+    
+    private func prepareMeasurement() {
+        DispatchQueue.global(qos: .background).async {
+            self.measurementTime = self.model.measurementTime
+            self.measurementModel.bindFingerTap()
+            self.cameraSetup.useSession().startRunning()
+            self.turnOnThe(torch: true)
+        }
+    }
+    
+    private func stopMeasurement(torch: Bool) {
+        self.isComplete = true
+        self.cameraSetup.useCaptureDevice().exposureMode = .autoExpose
+        self.cameraSetup.useSession().stopRunning()
+        self.motionManager.stopAccelerometerUpdates()
+        self.motionManager.stopGyroUpdates()
+        self.turnOnThe(torch: torch)
+        self.elementInitalize()
+    }
+    
+    private func elementInitalize() {
+        self.measurementTime = self.model.measurementTime
+        self.measurementTimer.invalidate()
+        self.chartTimer.invalidate()
+        self.dataModel.initRGBData()
+        self.dataModel.initAccData()
+        self.dataModel.initGyroData()
+        self.tapCount.removeAll()
+        self.noTapCount.removeAll()
+        self.stopMeasureCount.removeAll()
+    }
+    
+    private func turnOnThe(
         torch: Bool
     ) {
-        guard camSetup.hasTorch() else {
+        guard self.cameraSetup.hasTorch() else {
             print("has not torch")
             return
         }
+        
         switch torch {
         case true:
-            cameraSetup.useCaptureDevice()?.torchMode = .on
+            self.cameraSetup.useCaptureDevice().torchMode = .on
         case false:
-            cameraSetup.useCaptureDevice()?.torchMode = .off
+            self.cameraSetup.useCaptureDevice().torchMode = .off
         }
     }
     
     /// Accelemeter start
     private func accTimerAndCollectAccelemeterData() {
         self.motionManager.accelerometerUpdateInterval = 1 / 100
-        self.motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (acc, err)  in
+        guard let operationQueue = OperationQueue.current else {
+            print("acc operation queue return")
+            return
+        }
+        self.motionManager.startAccelerometerUpdates(to: operationQueue) { (acc, err)  in
             let z = self.dataModel.collectAccelemeterData(acc, err)
             self.measurementModel.inputAccZback.onNext(z > 0.0)
             self.measurementModel.inputAccZforward.onNext(z <= 0.0)
+            guard self.isDeviceBack else {
+                return
+            }
+            self.isDeviceBack = z <= 0.0 ? false : true
+            self.turnOnThe(torch: !self.isDeviceBack)
         }
     }
     
-    /// Accelemeter start
+    /// Gyroscope start
     private func gyroTimerAndCollectGyroscopeData() {
         self.motionManager.gyroUpdateInterval = 1 / 100
-        self.motionManager.startGyroUpdates(to: OperationQueue.current!) { (gyro, err)  in
+        guard let operationQueue = OperationQueue.current else {
+            print("gyro operation queue return")
+            return
+        }
+        self.motionManager.startGyroUpdates(to: operationQueue) { (gyro, err)  in
             self.dataModel.collectGyroscopeData(gyro, err)
         }
     }
@@ -181,25 +236,31 @@ open class FingerMeasurementKit: NSObject {
             .drive(onNext: { [weak self] status in
                 guard let self = self else { return }
                 
-                if status == .tap && (self.tapCount.count <= self.limitTapCount * 12) {
-                    if self.tapCount.count == 30 && !self.isComplete {
-                        self.chartUpdateTimer()
-                        self.cameraSetup.setUpCatureDevice()
-                        self.isTap = true
-                    }
+                if status == .tap && (self.tapCount.count <= self.limitTapCount * 3) {
+                    
                     self.tapCount.append(.tap)
                     self.noTapCount.removeAll()
                     self.stopMeasureCount.removeAll()
                     
+                    guard self.tapCount.count == 30 && !self.isComplete else {
+                        return
+                    }
+                        self.chartUpdateTimer()
+                        self.cameraSetup.setUpCatureDevice()
+                                        
                 } else if (status == .noTap) {
-                    
+
                     self.noTapCount.append(.noTap)
-                    
+                    self.tapCount.removeAll()
+                    self.stopMeasureCount.removeAll()
+
                 } else if (status == .back || status == .flip) {
-                    
+
                     self.stopMeasureCount.append(status)
                     self.tapCount.removeAll()
+                    self.noTapCount.removeAll()
                 }
+                self.measurementModel.checkStopStatus(status)
                 switch status {
                 case .tap:
                     defer {
@@ -211,23 +272,24 @@ open class FingerMeasurementKit: NSObject {
                         return
                     }
                     self.measurementModel.measurementStop.onNext(false)
-                    self.setTorch(camSetup: self.cameraSetup, torch: true)
-                    
+
                 case .noTap:
-                    guard self.tapCount.count >= 120 && (self.noTapCount.count == self.limitTapCount * self.model.limitTapTime) else {
-                        print("no tap return")
+                    guard self.tapCount.count >= 180 && (self.noTapCount.count == self.limitTapCount * self.model.limitNoTapTime) else {
+//                        print("no tap return")
                         return
                     }
+                    self.elementInitalize()
                     self.measurementModel.measurementStop.onNext(true)
-                    self.stopMeasurement()
-                    
+
                 case .back, .flip:
-                    guard self.stopMeasureCount.count == 40 else {
-                        print("back, flip return")
+                    guard self.stopMeasureCount.count >= 30 else {
+//                        print("back, flip return")
                         return
                     }
+                    self.isDeviceBack = true
+                    self.turnOnThe(torch: false)
+                    self.elementInitalize()
                     self.measurementModel.measurementStop.onNext(true)
-                    self.stopMeasurement()
                 }
             })
             .disposed(by: self.bag)
@@ -290,32 +352,9 @@ open class FingerMeasurementKit: NSObject {
                                            gyroURL: URL(string: "there is not gyro path")))
                     }
                 }
-                self.stopMeasurement()
+                self.stopMeasurement(torch: false)
             }
         }
-    }
-    /// 측정 중 멈춤 후 재시작
-    private func stopMeasurement() {
-        self.cameraSetup.useCaptureDevice()?.exposureMode = .autoExpose
-        self.cameraSetup.useSession().stopRunning()
-        self.motionManager.stopAccelerometerUpdates()
-        self.motionManager.stopGyroUpdates()
-        self.measurementTimer.invalidate()
-        self.chartTimer.invalidate()
-        self.elementInitalize()
-    }
-    
-    /// Camera stop시 초기화 되는 요소들
-    private func elementInitalize() {
-        self.isComplete = true
-        self.dataModel.initRGBData()
-        self.tapCount.removeAll()
-        self.noTapCount.removeAll()
-        self.stopMeasureCount.removeAll()
-        self.setTorch(
-            camSetup: self.cameraSetup,
-            torch: false
-        )
     }
 }
 
@@ -328,9 +367,7 @@ extension FingerMeasurementKit: AVCaptureVideoDataOutputSampleBufferDelegate {
     ) {
         guard let cvimgRef: CVImageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
             fatalError("cvimg ref")
-            
         }
-        let hasTorch = self.cameraSetup.hasTorch()
         
         CVPixelBufferLockBaseAddress(
             cvimgRef,
@@ -339,7 +376,6 @@ extension FingerMeasurementKit: AVCaptureVideoDataOutputSampleBufferDelegate {
         // MARK: RGB data
         guard let openCVDatas = OpenCVWrapper.preccessbuffer(
             sampleBuffer,
-            hasTorch: hasTorch,
             device: UIDevice.current.modelName
         ) else {
             print("objc casting error")

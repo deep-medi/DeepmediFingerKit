@@ -26,6 +26,9 @@ class MeasurementModel {
     let measurementComplete = BehaviorSubject(value: (false, URL(string: ""), URL(string: ""), URL(string: "")))
     let measurementStop = PublishSubject<Bool>()
     
+    var stoppedByNotTap = false
+    var stoppedByFlipingDevice = false
+    
     //bind
     func bindFingerTap() {
         _ = Observable
@@ -60,6 +63,23 @@ class MeasurementModel {
             result = .flip
         }
         return result
+    }
+    
+    func checkStopStatus(
+        _ status: MeasurementModel.status
+    ) {        
+        switch status {
+        case .tap:
+            self.stoppedByNotTap = false
+            self.stoppedByFlipingDevice = false
+        case .noTap:
+            self.stoppedByNotTap = true
+            self.stoppedByFlipingDevice = false
+        default:
+            self.stoppedByNotTap = false
+            self.stoppedByFlipingDevice = true
+        }
+        
     }
 }
 
