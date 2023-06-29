@@ -32,6 +32,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupUI()
+        
         self.completionMethod()
         
         self.camera.initalized(
@@ -40,15 +42,13 @@ class ViewController: UIViewController {
             captureDevice: captureDevice
         )
         self.fingerMeasureKitModel.setMeasurementTime(30)
-        self.fingerMeasureKitModel.doMeasurementBreath(true)
+        self.fingerMeasureKitModel.doMeasurementBreath(false)
         
         self.previewLayer = AVCaptureVideoPreviewLayer(session: self.session)
         
-        self.setupUI()
-        
-        DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 1) {
+//        DispatchQueue.global(qos: .background).async {
             self.fingerMeasureKit.startSession()
-        }
+//        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -78,26 +78,25 @@ class ViewController: UIViewController {
         }
         
         fingerMeasureKit.stopMeasurement { isStop in
-            if isStop {
-                self.fingerMeasureKit.stopSession()
-                let alertVC = UIAlertController(
-                    title: "Stop",
-                    message: "",
-                    preferredStyle: .alert
-                )
-                let action = UIAlertAction(
-                    title: "cancel",
-                    style: .default
-                ) { _ in
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        self.fingerMeasureKit.startSession()
-                    }
-                }
-                alertVC.addAction(action)
-                self.present(alertVC, animated: false)
-            } else {
-                print("stop measurement: \(isStop)")
+            let status = self.fingerMeasureKit.stoppedStatus()
+            guard isStop else {
+                return
             }
+            print("stop status : ",status)
+            self.fingerMeasureKit.stopSession()
+            let alertVC = UIAlertController(
+                title: "Stopped by \(status)",
+                message: "",
+                preferredStyle: .alert
+            )
+            let action = UIAlertAction(
+                title: "ok",
+                style: .default
+            ) { _ in
+                self.fingerMeasureKit.startSession()
+            }
+            alertVC.addAction(action)
+            self.present(alertVC, animated: false)
         }
         
         fingerMeasureKit.finishedMeasurement { success, rgbPath, accPath, gyroPath in
@@ -109,11 +108,12 @@ class ViewController: UIViewController {
                                                   uri: "uri",
                                                   secretKey: "secretKey",
                                                   apiKey: "apiKey")
+                print("header", header)
                 DispatchQueue.global(qos: .background).async {
                     self.fingerMeasureKit.stopSession()
                 }
             } else {
-                print("error")
+                print("finished measurement error")
             }
             self.dismiss(animated: true)
         }
