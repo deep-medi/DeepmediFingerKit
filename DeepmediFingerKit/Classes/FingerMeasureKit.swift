@@ -135,7 +135,6 @@ open class FingerMeasurementKit: NSObject {
     }
     
     open func startSession() {
-//        self.measurementRGBfromFinger()
         self.startMeasurement()
         self.prepareMeasurement()
     }
@@ -149,7 +148,6 @@ open class FingerMeasurementKit: NSObject {
     
     private func prepareMeasurement() {
         DispatchQueue.global(qos: .background).async {
-            //            self.measurementModel.bindFingerTap()
             self.measurementTime = self.model.measurementTime
             self.cameraSetup.useSession().startRunning()
             self.turnOnThe(torch: true)
@@ -202,7 +200,7 @@ open class FingerMeasurementKit: NSObject {
     
     /// Accelemeter start
     private func accelemeterUpdates() {
-        if self.motionManager.isAccelerometerActive {
+        if self.motionManager.isAccelerometerAvailable {
             self.motionManager.accelerometerUpdateInterval = 1 / 100
             guard let operationQueue = OperationQueue.current else {
                 print("acc operation queue return")
@@ -232,7 +230,7 @@ open class FingerMeasurementKit: NSObject {
         if self.motionManager.isDeviceMotionAvailable {
             self.motionManager.deviceMotionUpdateInterval = 0.1  // 업데이트 간격 설정
             guard let operationQueue = OperationQueue.current else {
-                print("gyro operation queue return")
+                print("deviceMotion operation queue return")
                 return
             }
             self.motionManager.startDeviceMotionUpdates(to: operationQueue) { (motion, error) in

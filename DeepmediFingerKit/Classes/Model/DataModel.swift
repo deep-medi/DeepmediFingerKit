@@ -120,7 +120,7 @@ class DataModel {
             z = Float(accMeasureData.z)
             
             let timeStamp = (Date().timeIntervalSince1970 * 1000000).rounded()
-            guard timeStamp > 100 else { return }
+            guard timeStamp > 100 else { return print("acc timeStamp error") }
             let dataFormat = (timeStamp, x, y, z)
             
             self.accXdata.append(x)

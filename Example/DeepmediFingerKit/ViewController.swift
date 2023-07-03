@@ -42,7 +42,7 @@ class ViewController: UIViewController {
             captureDevice: captureDevice
         )
         self.fingerMeasureKitModel.setMeasurementTime(30)
-        self.fingerMeasureKitModel.doMeasurementBreath(false)
+        self.fingerMeasureKitModel.doMeasurementBreath(true)
         
         self.previewLayer = AVCaptureVideoPreviewLayer(session: self.session)
         
