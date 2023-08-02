@@ -27,7 +27,8 @@ class DataModel {
     // MARK: RGB
     var rData = [Float](),
         gData = [Float](),
-        bData = [Float]()
+        bData = [Float](),
+        timeStamp = [Double]()
     
     var gTempData = [Float]()
     
@@ -59,6 +60,7 @@ class DataModel {
         self.gData.removeAll()
         self.gTempData.removeAll()
         self.bData.removeAll()
+        self.timeStamp.removeAll()
         
         self.rgbData.removeAll()
         self.rgbDataToArr.removeAll()
@@ -87,18 +89,18 @@ class DataModel {
     
     // MARK: RGB값 수집
     func collectRGB(
+        timeStamp: Double,
         r: Float,
         g: Float,
         b: Float
     ) {
-        let timeStamp = (Date().timeIntervalSince1970 * 1000000).rounded()
-        guard timeStamp != 0 else { return print("rgb timeStamp error") }
         let dataFormat = (timeStamp, r, g, b)
         
         self.gTempData.append(g)
         self.rData.append(r)
         self.gData.append(g)
         self.bData.append(b)
+        self.timeStamp.append(timeStamp)
         self.rgbData.append(dataFormat)
     }
     
