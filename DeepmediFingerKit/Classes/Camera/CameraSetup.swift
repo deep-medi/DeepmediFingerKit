@@ -44,24 +44,23 @@ class CameraSetup: NSObject {
         self.session.sessionPreset = .low
         
         if let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) {
-            self.captureDevice = captureDevice
-            if self.session.inputs.isEmpty {
-                guard let input = try? AVCaptureDeviceInput(device: captureDevice) else { fatalError("input error") }
-                self.session.addInput(input)
-            }
+            self.detection(captureDevice)
         } else if let captureDevice1 = AVCaptureDevice.default(for: .video) {
-            self.captureDevice = captureDevice1
-            if self.session.inputs.isEmpty {
-                guard let input = try? AVCaptureDeviceInput(device: captureDevice1) else { fatalError("input error") }
-                self.session.addInput(input)
-            }
+            self.detection(captureDevice1)
         } else { // iOS version 13.0 이하
             guard let captureDevice = AVCaptureDevice.default(for: .video) else { fatalError("capture device error") }
-            self.captureDevice = captureDevice
-            if self.session.inputs.isEmpty {
-                guard let input = try? AVCaptureDeviceInput(device: captureDevice) else { fatalError("input error") }
-                self.session.addInput(input)
-            }
+            self.detection(captureDevice)
+        }
+    }
+    
+    private func detection(
+        _ captureDevice: AVCaptureDevice
+    ) {
+        self.captureDevice = captureDevice
+        
+        if self.session.inputs.isEmpty {
+            guard let input = try? AVCaptureDeviceInput(device: captureDevice) else { fatalError("input error") }
+            self.session.addInput(input)
         }
     }
     

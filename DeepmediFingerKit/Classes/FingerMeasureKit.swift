@@ -401,7 +401,10 @@ extension FingerMeasurementKit: AVCaptureVideoDataOutputSampleBufferDelegate {
               let b = openCVDatas[3] as? Float else { return print("objc rgb casting error") }
         
         self.measurementModel.inputFingerTap.onNext(tap)
+        let timeStamp = (Date().timeIntervalSince1970 * 1000000).rounded()
+        guard timeStamp != 0 else { return print("rgb timeStamp error") }
         self.dataModel.collectRGB(
+            timeStamp: timeStamp,
             r: r, g: g, b: b
         )
         CVPixelBufferUnlockBaseAddress(
