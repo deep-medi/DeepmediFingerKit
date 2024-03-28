@@ -83,9 +83,20 @@ class ViewController: UIViewController {
                 return
             }
             print("stop status : ",status)
-            self.fingerMeasureKit.stopSession()
-            if !self.session.isRunning {
-                self.fingerMeasureKit.startSession()
+            if status != .flipDevice {
+                self.fingerMeasureKit.stopSession()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    if !self.session.isRunning {
+                        self.fingerMeasureKit.startSession()
+                    }
+                }
+            } else {
+                self.fingerMeasureKit.stopSession()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    if !self.session.isRunning {
+                        self.fingerMeasureKit.startSession()
+                    }
+                }
             }
 //            let alertVC = UIAlertController(
 //                title: "Stopped by \(status)",

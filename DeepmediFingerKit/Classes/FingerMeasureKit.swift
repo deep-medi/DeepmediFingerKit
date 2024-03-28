@@ -41,7 +41,9 @@ open class FingerMeasurementKit: NSObject {
     private let standardTapCount = 60
     
     // MARK: Flag
-    private var isComplete = Bool()
+    private var isDeviceBack = false,
+                isTorch = true,
+                isComplete = Bool()
     
     public func timesLeft(
         _ time: @escaping (Int)->()
@@ -154,20 +156,22 @@ open class FingerMeasurementKit: NSObject {
         }
     }
     
-    
     open func stopSession() {
         self.stopMeasurement()
     }
     
     private func stopMeasurement() {
         self.isComplete = true
-        self.cameraSetup.useCaptureDevice().exposureMode = .autoExpose
-        self.cameraSetup.useSession().stopRunning()
         self.motionManager.stopAccelerometerUpdates()
         self.motionManager.stopGyroUpdates()
         self.motionManager.stopDeviceMotionUpdates()
         self.turnOnThe(torch: false)
         self.elementInitalize()
+        self.cameraSetup.useCaptureDevice().exposureMode = .autoExpose
+        
+        DispatchQueue.global(qos: .background).async {
+            self.cameraSetup.useSession().stopRunning()
+        }
     }
     
     private func elementInitalize() {
@@ -258,7 +262,7 @@ open class FingerMeasurementKit: NSObject {
             .drive(onNext: { [weak self] status in
                 guard let self = self else { return }
                 self.measurementModel.checkStopStatus(status)
-                if status == .tap && (self.tap.count <= self.standardTapCount * 12) {
+                if status == .tap && (self.tap.count <= self.standardTapCount * 3) {
                     if self.tap.count == 30 && !self.isComplete {
                         self.chartUpdateTimer()
                         self.cameraSetup.setUpCatureDevice()
@@ -277,7 +281,7 @@ open class FingerMeasurementKit: NSObject {
                 switch status {
                 case .tap:
                     defer {
-                        if self.tap.count == (self.standardTapCount * self.model.limitTapTime / 2) {
+                        if self.tap.count == (self.standardTapCount * self.model.limitTapTime) {
                             self.startTimer()
                         }
                     }
@@ -402,7 +406,7 @@ extension FingerMeasurementKit: AVCaptureVideoDataOutputSampleBufferDelegate {
         
         self.measurementModel.inputFingerTap.onNext(tap)
         let timeStamp = (Date().timeIntervalSince1970 * 1000000).rounded()
-        guard timeStamp != 0 else { return print("rgb timeStamp error") }
+        guard timeStamp > 100 else { return print("rgb timeStamp error") }
         self.dataModel.collectRGB(
             timeStamp: timeStamp,
             r: r, g: g, b: b
