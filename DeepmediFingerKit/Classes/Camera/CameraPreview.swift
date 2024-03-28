@@ -17,13 +17,15 @@ public class CameraPreview: UIView {
     public func setup(
         layer: AVCaptureVideoPreviewLayer,
         frame: CGRect,
-        useCornerRadius: Bool
+        useCornerRadius: Bool? = nil
     ) {
         self.layer.addSublayer(layer)
         layer.videoGravity = .resizeAspectFill
-        layer.frame = frame
+        layer.frame = CGRect(x: 0, y: 0,
+                             width: frame.width,
+                             height: frame.height)
         
-        guard useCornerRadius else { return }
+        guard useCornerRadius ?? false else { return }
         layer.cornerRadius = frame.width / 2
     }
     

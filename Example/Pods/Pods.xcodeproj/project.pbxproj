@@ -755,6 +755,7 @@
 		5B91C712E24B473427655EA998130716 /* intrin_vsx.hpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = intrin_vsx.hpp; path = opencv2.framework/Versions/A/Headers/core/hal/intrin_vsx.hpp; sourceTree = "<group>"; };
 		5C6B5D69832F0AA137966D5FF4950D24 /* reduce.hpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = reduce.hpp; path = opencv2.framework/Versions/A/Headers/core/cuda/detail/reduce.hpp; sourceTree = "<group>"; };
 		5C6D797859FD6383A8F81C7DE32BF0E2 /* ConstraintViewDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintViewDSL.swift; path = Source/ConstraintViewDSL.swift; sourceTree = "<group>"; };
+		5CBCC18D2BB55B50004DA3E2 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		5D180A6E5341915C76C609E73F8FDDA2 /* Header.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		5D359080BB23017E1F803C9A41F6829F /* goclkernel.hpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = goclkernel.hpp; path = opencv2.framework/Versions/A/Headers/gapi/ocl/goclkernel.hpp; sourceTree = "<group>"; };
 		5D548C8522A98A0D36F8ECC210CF64D6 /* opencl_gl.hpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = opencl_gl.hpp; path = opencv2.framework/Versions/A/Headers/core/opencl/runtime/opencl_gl.hpp; sourceTree = "<group>"; };
@@ -1871,6 +1872,7 @@
 		9112F155EC91D793CD0B788EBBF20270 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5CBCC18D2BB55B50004DA3E2 /* PrivacyInfo.xcprivacy */,
 				7BB06A44229D132780E9A2E2E3C63DDC /* CameraObject.swift */,
 				D930708A23E8B435EE09D18729B683AD /* FingerMeasureKit.swift */,
 				34F100FBBAE488580C61E7B557592245 /* FingerMeasureKitModel.swift */,

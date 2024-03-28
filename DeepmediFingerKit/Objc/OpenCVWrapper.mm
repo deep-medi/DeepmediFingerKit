@@ -81,8 +81,7 @@
             result = false;
         }
     } else if ([device containsString:@"7"] || [device containsString:@"8"]) {
-        if(canny < 3.0 && (r / 255) > 1.2f && (g / 255) < 0.4f) {
-//        if(canny < 3.0 && r > 100.0f && g < 130.0f) {
+        if(canny < 3.0 && r > 100.0f && g < 130.0f) {
             result = true;
         } else {
             result = false;
@@ -100,7 +99,6 @@
             result = false;
         }
     }
-//    printf("-> %s / canny * 100: %f / r/255: %f / g/255: %f \n",[device UTF8String],canny * 100 ,(r / 255),(g / 255));
     
     NSMutableArray *Return = [[NSMutableArray alloc] init];
     
