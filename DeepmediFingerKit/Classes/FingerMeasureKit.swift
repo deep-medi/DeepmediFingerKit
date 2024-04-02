@@ -137,7 +137,6 @@ open class FingerMeasurementKit: NSObject {
     }
     
     open func startSession() {
-        print("##")
         self.startMeasurement()
         self.prepareMeasurement()
     }
@@ -190,7 +189,6 @@ open class FingerMeasurementKit: NSObject {
     private func turnOnThe(
         torch: Bool
     ) {
-        print("1")
         guard self.cameraSetup.hasTorch() else {
             print("has not torch")
             return
