@@ -132,11 +132,12 @@ open class FingerMeasurementKit: NSObject {
     }
     
     deinit {
-        print("deinit")
+        print("deinit") 
         UIApplication.shared.isIdleTimerDisabled = false
     }
     
     open func startSession() {
+        print("##")
         self.startMeasurement()
         self.prepareMeasurement()
     }
@@ -189,6 +190,7 @@ open class FingerMeasurementKit: NSObject {
     private func turnOnThe(
         torch: Bool
     ) {
+        print("1")
         guard self.cameraSetup.hasTorch() else {
             print("has not torch")
             return
