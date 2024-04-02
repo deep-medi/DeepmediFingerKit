@@ -75,31 +75,31 @@
     
     BOOL result;
     
-//    if ([device containsString:@"6"]) {
-//        if(canny < 7.0 && r > 100.0f && g < 175.0f) {
-//            result = true;
-//        } else {
-//            result = false;
-//        }
-//    } else if ([device containsString:@"7"] || [device containsString:@"8"]) {
-//        if(canny < 3.0 && (r / 255) > 100.0f && (g / 255) < 130.0f) {
-//            result = true;
-//        } else {
-//            result = false;
-//        }
-//    } else 
-        
-    if([device containsString:@"X"]) {
-        if(canny < 3.0 && (r / 255) > 0.25f && (g / 255) < 2.0f) {
+    if ([device containsString:@"Pad"]){
+        if(canny < 3.0 && (r / 255) > 0.07f && (g / 255) < 2.0f) {
             result = true;
         } else {
             result = false;
         }
     } else {
-        if(canny < 3.0 && (r / 255) > 0.4f && (g / 255) < 0.25f) {
-            result = true;
+        if([device containsString:@"X"]) {
+            if(canny < 3.0 && (r / 255) > 0.25f && (g / 255) < 2.0f) {
+                result = true;
+            } else {
+                result = false;
+            }
+        } else if ([device containsString:@"7"] || [device containsString:@"8"]) {
+            if(canny < 3.0 && (r / 255) > 0.2f && (g / 255) < 0.5f) {
+                result = true;
+            } else {
+                result = false;
+            }
         } else {
-            result = false;
+            if(canny < 3.0 && (r / 255) > 0.4f && (g / 255) < 0.1f) {
+                result = true;
+            } else {
+                result = false;
+            }
         }
     }
     
