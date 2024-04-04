@@ -70,7 +70,8 @@
 //    printf("->r %f / r/255 %f / g %f / g/255 %f /  b %f \n", r, (r / 255), g, (g / 255), b);
 //    printf("->canny %f / r/255 %f / g/255 %f /  b/255 %f \n",(canny), (r / 255), (g / 255), (b / 255));
 //    printf("->%s / canny: %f / r: %f / r/255: %f / g: %f / g/255: %f /  b: %f \n",[device UTF8String] ,canny, r, (r / 255), g, (g / 255), b);
-    printf("->%s / canny: %f / r: %f / r/255: %f / g: %f / g/255: %f \n",[device UTF8String] ,canny, r, (r / 255), g, (g / 255));
+//    printf("->%s / canny: %f / r: %f / r/255: %f / g: %f / g/255: %f \n",[device UTF8String] ,canny, r, (r / 255), g, (g / 255));
+    printf("->%s / canny: %f / r: %f / r/255: %f / g: %f / g/255: %f / b: %f / b/255: %f\n",[device UTF8String] ,canny, r, (r / 255), g, (g / 255), b, (b / 255));
     
     BOOL result;
     
